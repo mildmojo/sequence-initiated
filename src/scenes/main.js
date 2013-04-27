@@ -1,14 +1,6 @@
 Crafty.scene("main", function() {
-
-	var elements = [
-        "src/entities/ufo.js",
-        "src/interfaces/info.js"
-	];
-	
-	//when everything is loaded, run the main scene
-	require(elements, function() {	   
-		sc['ufo'] = new Ufo();
-		infc['info'] = new Info();
-	});
-
+  var sw_toggle = Crafty.e( 'ToggleSwitch' )
+    .attr({ x: SCREEN.center_in_x(52), y: SCREEN.center_in_y(52), z: Layer.SPRITES,
+            w: 52, h: 52 })
+    .switchType('small_toggle');
 });
