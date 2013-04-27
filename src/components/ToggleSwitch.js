@@ -35,7 +35,6 @@ Crafty.c( 'ToggleSwitch', {
       var lastY = this._last_drag ? this._last_drag.clientY : nextY;
       var midpoint = this._origin.y + this.y;
 
-      console.log([e.clientY,midpoint]);
       // Last drag was above the middle
       // This drag is at or below middle
       if ( lastY <= midpoint && nextY > midpoint ) {

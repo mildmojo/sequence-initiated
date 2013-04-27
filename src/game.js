@@ -1,104 +1,68 @@
+gameContainer = {
+    env : 'dev',
+    gameVersion : '0.0.1',
+    scene : 'main',
+    version: function() {
+      var today = new Date();
+      var version = gameContainer.gameVersion;
+      // Fix for cache
+      if(gameContainer.env == 'dev') {
+        gameContainer._devVersion = gameContainer._devVersion || today.getDay()+"_"+ today.getHours() +"_"+today.getSeconds();
+        version = gameContainer._devVersion;
+      }
+      return version;
+    }
+};
+
+Crafty.modules({ 'crafty-debug-bar': 'DEV' }, function () {
+  Crafty.debugBar.show();
+});
+
+var elem = document.getElementById("cr-stage");
+if (elem.requestFullscreen) {
+  elem.requestFullscreen();
+} else if (elem.mozRequestFullScreen) {
+  elem.mozRequestFullScreen();
+} else if (elem.webkitRequestFullscreen) {
+  elem.webkitRequestFullscreen();
+}
+
 // Based on http://craftycomponents.com/boilerplate
 window.onload = function() {
 
-  var version = null;
-  var today = new Date();
-
-  // Fix for cache
-  if(gameContainer.env == 'dev') {
-    version = today.getDay()+"_"+ today.getHours() +"_"+today.getSeconds();
-  } else {
-    version = gameContainer.gameVersion;
-  };
+  var version = gameContainer.version();
 
   var externals = {
     scripts: [
-    ]
-    ,assets: [
-    ]
-    ,components: [
-      "src/components/MouseHover.js?v="+version+"",
-      "src/entities/base/BaseEntity.js?v="+version+"",
+      'src/helpers.js?v='+version+''
+      ,'src/components/MouseHover.js?v='+version+''
+      ,'src/components/Text.js?v='+version+''
+      ,'src/components/ToggleSwitch.js?v='+version+''
     ]
     ,scenes: [
+      'src/scenes/loading.js?v='+version+'',
+      'src/scenes/main.js?v='+version+'',
     ]
   }
 
   //start Crafty
-  Crafty.init(800, 600);
+  Crafty.init();
   Crafty.canvas.init();
+  //Crafty.viewport.zoom(2);
+
+  // Disable Crafty's keyboard handler while input boxes are focused.
+  $(Crafty.stage.elem).on( 'focus', 'input', function(){
+    Crafty.removeEvent( this, "keydown", Crafty.keyboardDispatch );
+    Crafty.removeEvent( this, "keyup", Crafty.keyboardDispatch );
+  });
+  $(Crafty.stage.elem).on( 'blur', 'input', function(){
+    Crafty.addEvent( this, "keydown", Crafty.keyboardDispatch );
+    Crafty.addEvent( this, "keyup", Crafty.keyboardDispatch );
+  });
 
   require(externals.scripts, function() {
-    //the loading screen - that will be display while assets loaded
-    Crafty.scene("loading", function() {
-      // clear scene and interface
-      sc = []; infc = [];
-
-      var loadingText = Crafty.e("2D, Canvas, Text")
-          .attr({w: 500, h: 20, x: ((Crafty.viewport.width) / 2), y: (Crafty.viewport.height / 2), z: 2})
-          .text('Loading...')
-          .textColor('#000')
-          .textFont({'size' : '24px', 'family': 'Arial'});
-
-      // load takes an array of assets and a callback when complete
-      Crafty.load(externals.assets, function() {
-        // array with local components
-          //when everything is loaded, run the main scene
-          require(externals.components, function() {
-            loadingText.destroy();
-            if (gameContainer.scene != undefined) {
-              Crafty.scene(gameContainer.scene);
-            }
-          });
-      },
-      function(e) {
-        loadingText.text('Loading ('+(e.percent.toFixed(0))+'%)');
-      });
+    require(externals.scenes, function() {
+      Crafty.scene('loading');
     });
-
-    // declare all scenes
-    var scenes = [
-      // === SCENES HERE ===
-      "src/scenes/main.js?v="+version+"",
-    ];
-
-    require(scenes, function(){});
-
-    $(window).on('resize', setupProportionalCanvas);
-
-    //automatically play the loading scene
-    Crafty.scene("loading");
   });
 };
-
-
-// Based on http://buildnewgames.com/mobile-game-primer/
-function setupProportionalCanvas() {
-  var $container = $("#cr-stage");
-  var $canvas = $(Crafty.stage.elem);
-  var h = window.innerHeight;
-  var w = window.innerWidth;
-
-  $container.css('height',h*2);
-  window.scrollTo(0,1);
-
-  $canvas.attr({width: w, height: h});
-  h = window.innerHeight + 2
-  $container.css({ height: h, width: w, padding: 0, margin: 0});
-
-  var canvasH = $canvas.attr('height'),
-      canvasW = $canvas.attr('width'),
-      maxHeightMult = h / canvasH,
-      maxWidthMult = w / canvasW,
-      multiplier = Math.min(maxHeightMult, maxWidthMult),
-      destH = canvasH * multiplier,
-      destW = canvasW * multiplier;
-
-  $canvas.css({
-    position: 'absolute',
-    height: destH,
-    width: destW,
-    left: w / 2 - destW / 2,
-    top: 0
-  });
-}
