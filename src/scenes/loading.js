@@ -4,6 +4,7 @@ Crafty.scene("loading", function() {
 
   var assets = [
     'web/images/switches.png?v='+version+''
+    ,'web/images/lights.png?v='+version+''
   ];
   // Monitor browser resize events, like mobile orientation changes.
   $(window).resize( _.debounce( SCREEN.resize_callback, 500 ) );
@@ -21,7 +22,6 @@ Crafty.scene("loading", function() {
       .textFont({ size: '24px', family: 'Gruppo, Arial', weight: 'bold'})
       .textAlign('center');
 
-console.log(assets);
   // load takes an array of assets and a callback when complete
   Crafty.load(assets,
     function() {
@@ -42,5 +42,9 @@ function initSprites() {
   var version = gameContainer.version();
   Crafty.sprite(100, 'web/images/switches.png?v='+version+'', {
     switch_small_toggle: [0, 0]
+  });
+  Crafty.sprite(30, 'web/images/lights.png?v='+version+'', {
+    lamp_red: [0, 0]
+    ,lamp_green: [1, 0]
   });
 }
