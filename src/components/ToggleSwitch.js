@@ -4,12 +4,13 @@ Crafty.c( 'ToggleSwitch', {
     this.requires( '2D, Canvas, Mouse, MouseHover' );
     this.value = false;
     this._allow_click = false;
+    this._total_drag = 0;
+    this._last_drag = null;
     self = this;
     this.bind( 'MouseDown', this._click );
     this.bind( 'MouseMove', this._drag );
     this.bind( 'MouseOut', this._reset_drag );
     this.bind( 'MouseUp', this._reset_drag )
-    this._reset_drag();
     return this;
   }
 
@@ -32,8 +33,11 @@ Crafty.c( 'ToggleSwitch', {
   }
 
   ,setValue: function(new_val) {
-    this.value = new_val;
-    this.rotation = this.value ? 180 : 0;
+    if ( new_val != this.value ) {
+      this.value = new_val;
+      this.rotation = this.value ? 180 : 0;
+      this.trigger( 'Toggle', this.value );
+    }
     return this;
   }
 
@@ -52,7 +56,8 @@ Crafty.c( 'ToggleSwitch', {
       var lastY = this._last_drag ? this._last_drag.clientY : nextY;
       var midpoint = this._origin.y + this.y;
       this._total_drag += nextY - lastY;
-console.log(this._total_drag);
+
+      // console.log(this._total_drag);
       // console.log([e.clientY, midpoint])
       // console.log(e.buttons);
 
@@ -60,6 +65,7 @@ console.log(this._total_drag);
       // This drag is at or below middle
       if ( Math.abs(this._total_drag) > 15 ) {
         this.setValue( this._total_drag < 0 );
+        this._total_drag = 0;
       }
       // if ( lastY <= midpoint && nextY > midpoint ) {
       //   // Crossing midpoint going down
@@ -77,6 +83,6 @@ console.log(this._total_drag);
   ,_reset_drag: _.debounce(function() {
     this._last_drag = null;
     this._total_drag = 0;
-    console.log('reset!');
+    // console.log('reset!');
   }, 200)
 });
