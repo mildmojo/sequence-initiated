@@ -5,7 +5,6 @@ Crafty.scene("loading", function() {
   var assets = [
     'web/images/switches.png?v='+version+''
   ];
-
   // Monitor browser resize events, like mobile orientation changes.
   $(window).resize( _.debounce( SCREEN.resize_callback, 500 ) );
 
@@ -19,26 +18,29 @@ Crafty.scene("loading", function() {
       .attr({w: 500, h: 20, x: SCREEN.center_in_x(500), y: SCREEN.center_in_y(20), z: Layer.HUD_FG})
       .text('Loading...')
       .textColor('#000')
-      .textFont({'size': '24px', 'family': 'Arial'})
+      .textFont({ size: '24px', family: 'Gruppo, Arial', weight: 'bold'})
       .textAlign('center');
 
+console.log(assets);
   // load takes an array of assets and a callback when complete
-  Crafty.load(assets, function() {
+  Crafty.load(assets,
+    function() {
       initSprites();
       //when everything is loaded, run the main scene
       loadingText.destroy();
       if (gameContainer.scene != undefined) {
         Crafty.scene(gameContainer.scene);
       }
-  },
-  function(e) {
-    loadingText.text('Loading ('+(e.percent.toFixed(0))+'%)');
-  });
+    },
+    function(e) {
+      loadingText.text('Loading ('+(e.percent.toFixed(0))+'%)');
+    }
+  );
 });
 
 function initSprites() {
   var version = gameContainer.version();
-  Crafty.sprite(52, 'web/images/switches.png?v='+version+'', {
+  Crafty.sprite(100, 'web/images/switches.png?v='+version+'', {
     switch_small_toggle: [0, 0]
   });
 }

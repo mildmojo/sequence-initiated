@@ -1,6 +1,7 @@
 gameContainer = {
-    env : 'dev',
-    gameVersion : '0.0.1',
+    env : 'prod',
+    // env : 'dev',
+    gameVersion : '0-0-1',
     scene : 'main',
     version: function() {
       var today = new Date();
@@ -14,17 +15,10 @@ gameContainer = {
     }
 };
 
-Crafty.modules({ 'crafty-debug-bar': 'DEV' }, function () {
-  Crafty.debugBar.show();
-});
-
-var elem = document.getElementById("cr-stage");
-if (elem.requestFullscreen) {
-  elem.requestFullscreen();
-} else if (elem.mozRequestFullScreen) {
-  elem.mozRequestFullScreen();
-} else if (elem.webkitRequestFullscreen) {
-  elem.webkitRequestFullscreen();
+if ( gameContainer.env == 'dev' ) {
+  Crafty.modules({ 'crafty-debug-bar': 'DEV' }, function () {
+    Crafty.debugBar.show();
+  });
 }
 
 // Based on http://craftycomponents.com/boilerplate
@@ -48,17 +42,23 @@ window.onload = function() {
   //start Crafty
   Crafty.init();
   Crafty.canvas.init();
-  //Crafty.viewport.zoom(2);
+  Crafty.background('#FFFFFF');
+
+  // This refuses to work.
+  //Crafty.viewport.scale(2.0);
+
+  Crafty.removeEvent( this, "keydown", Crafty.keyboardDispatch );
+  Crafty.removeEvent( this, "keyup", Crafty.keyboardDispatch );
 
   // Disable Crafty's keyboard handler while input boxes are focused.
-  $(Crafty.stage.elem).on( 'focus', 'input', function(){
-    Crafty.removeEvent( this, "keydown", Crafty.keyboardDispatch );
-    Crafty.removeEvent( this, "keyup", Crafty.keyboardDispatch );
-  });
-  $(Crafty.stage.elem).on( 'blur', 'input', function(){
-    Crafty.addEvent( this, "keydown", Crafty.keyboardDispatch );
-    Crafty.addEvent( this, "keyup", Crafty.keyboardDispatch );
-  });
+  // $(Crafty.stage.elem).on( 'focus', 'input', function(){
+  //   Crafty.removeEvent( this, "keydown", Crafty.keyboardDispatch );
+  //   Crafty.removeEvent( this, "keyup", Crafty.keyboardDispatch );
+  // });
+  // $(Crafty.stage.elem).on( 'blur', 'input', function(){
+  //   Crafty.addEvent( this, "keydown", Crafty.keyboardDispatch );
+  //   Crafty.addEvent( this, "keyup", Crafty.keyboardDispatch );
+  // });
 
   require(externals.scripts, function() {
     require(externals.scenes, function() {
