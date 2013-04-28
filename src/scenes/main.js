@@ -1,6 +1,6 @@
 Crafty.scene("main", function() {
   var sw_toggle = Crafty.e( 'ToggleSwitch' )
-    .attr({ x: SCREEN.center_in_x(52), y: SCREEN.center_in_y(52), z: Layer.SPRITES,
-            w: 52, h: 52 })
-    .switchType('small_toggle');
+    .switchType('small_toggle')
+    .attr({ x: SCREEN.center_in_x(100), y: SCREEN.center_in_y(100), z: Layer.SPRITES,
+            w: 100, h: 100 });
 });

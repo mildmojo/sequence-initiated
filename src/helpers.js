@@ -33,12 +33,15 @@ function clampVal( val, min, max ) {
 }
 
 var SCREEN = {
-  WIDTH:   0
-  ,HEIGHT: 0
-  ,_mask:  null
+  WIDTH:      0
+  ,HEIGHT:    0
+  ,mouseDown: false
+  ,_mask:     null
 
   ,init: function() {
     $(window).on( 'resize', SCREEN.resize_callback );
+    $(window).bind( 'mousedown', function(){ SCREEN.mouseDown = true });
+    $(window).bind( 'mouseup',   function(){ SCREEN.mouseDown = false });
     SCREEN._setupProportionalCanvas();
   }
 
@@ -139,7 +142,6 @@ var SCREEN = {
   // Fade a black layer from startAlpha to endAlpha over duration millisecs
   ,_doFadeBlack: function( startAlpha, endAlpha, duration, callback ) {
     var frame_count = parseInt( ( duration / 1000 ) * Crafty.timer.getFPS() );
-    console.log(frame_count);
     SCREEN._mask = SCREEN._mask || Crafty.e( '2D, DOM, Tween, Color, Persist' );
     SCREEN._mask.attr({
         x: 0,
