@@ -51,7 +51,7 @@ var SCREEN = {
       SCREEN.fadeToBlack(500, function(){
         Crafty.pause(true);
       });
-    } else {
+    } else if ( Crafty.isPaused() ) {
       Crafty.pause(false);
       SCREEN.fadeFromBlack(250);
     }
