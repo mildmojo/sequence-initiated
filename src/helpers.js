@@ -12,6 +12,7 @@ var Layer = {
   ,HUD_FG:  10
   ,HUD_BG:  9
   ,EFFECTS: 7
+  ,LABELS:  6
   ,SPRITES: 5
   ,BG:      0
 };
@@ -39,9 +40,9 @@ var SCREEN = {
   ,_mask:     null
 
   ,init: function() {
-    $(window).on( 'resize', SCREEN.resize_callback );
-    $(window).bind( 'mousedown', function(){ SCREEN.mouseDown = true });
-    $(window).bind( 'mouseup',   function(){ SCREEN.mouseDown = false });
+    Crafty.addEvent( this, 'resize', SCREEN.resize_callback );
+    Crafty.addEvent( this, 'mousedown', function(){ SCREEN.mouseDown = true } );
+    Crafty.addEvent( this, 'mouseup',   function(){ SCREEN.mouseDown = false } );
     SCREEN._setupProportionalCanvas();
   }
 
@@ -99,12 +100,50 @@ var SCREEN = {
     return SCREEN.WIDTH * pct;
   }
 
-  ,center_in_x: function(val) {
-    return SCREEN.origin().x - val / 2;
+  ,center_in_x: function(val, relative_to_obj) {
+    var x = SCREEN.origin().x;
+    var w = 0;
+
+    if ( typeof relative_to_obj !== 'undefined' ) {
+      switch (true) {
+        case relative_to_obj.hasOwnProperty( '_x' ):
+          x = relative_to_obj._x;
+          w = relative_to_obj._w;
+          break;
+        case relative_to_obj.hasOwnProperty( 'x' ):
+          x = relative_to_obj.x;
+          w = relative_to_obj.w;
+          break;
+        case typeof relative_to_obj === 'number':
+          x = relative_to_obj;
+          break;
+      }
+    }
+
+    return ( x + w / 2 ) - val / 2;
   }
 
-  ,center_in_y: function(val) {
-    return SCREEN.origin().y - val / 2;
+  ,center_in_y: function(val, relative_to_obj) {
+    var y = SCREEN.origin().y;
+    var h = 0;
+
+    if ( typeof relative_to_obj !== 'undefined' ) {
+      switch (true) {
+        case relative_to_obj.hasOwnProperty( '_y' ):
+          y = relative_to_obj._y;
+          h = relative_to_obj._h;
+          break;
+        case relative_to_obj.hasOwnProperty( 'y' ):
+          y = relative_to_obj.y;
+          h = relative_to_obj.h;
+          break;
+        case typeof relative_to_obj === 'number':
+          y = relative_to_obj;
+          break;
+      }
+    }
+
+    return ( y + h / 2 ) - val / 2;
   }
 
   ,css_width: function(elem) {
@@ -146,8 +185,8 @@ var SCREEN = {
     SCREEN._mask.attr({
         x: 0,
         y: 0,
-        w: SCREEN.WIDTH,
-        h: SCREEN.HEIGHT,
+        w: SCREEN.WIDTH*2,
+        h: SCREEN.HEIGHT*2,
         z: Layer.HUD_FX,
         alpha: startAlpha
       })
@@ -155,7 +194,7 @@ var SCREEN = {
       .tween({ alpha: endAlpha }, frame_count );
 
     if ( typeof callback == 'function' )
-      _.delay( callback, duration );
+      Crafty.e('Delay').delay( callback, duration );
   }
 
 };
