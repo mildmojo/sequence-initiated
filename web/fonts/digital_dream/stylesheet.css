@@ -2,11 +2,11 @@
 
 @font-face {
     font-family: 'DigitaldreamRegular';
-    src: url('web/fonts/digital_dream/DIGITALDREAM-webfont.eot');
-    src: url('web/fonts/digital_dream/DIGITALDREAM-webfont.eot?#iefix') format('embedded-opentype'),
-         url('web/fonts/digital_dream/DIGITALDREAM-webfont.woff') format('woff'),
-         url('web/fonts/digital_dream/DIGITALDREAM-webfont.ttf') format('truetype'),
-         url('web/fonts/digital_dream/DIGITALDREAM-webfont.svg#DigitaldreamRegular') format('svg');
+    src: url('DIGITALDREAM-webfont.eot');
+    src: url('DIGITALDREAM-webfont.eot?#iefix') format('embedded-opentype'),
+         url('DIGITALDREAM-webfont.woff') format('woff'),
+         url('DIGITALDREAM-webfont.ttf') format('truetype'),
+         url('DIGITALDREAM-webfont.svg#DigitaldreamRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -14,11 +14,11 @@
 
 @font-face {
     font-family: 'DigitaldreamFatRegular';
-    src: url('web/fonts/digital_dream/DIGITALDREAMFAT-webfont.eot');
-    src: url('web/fonts/digital_dream/DIGITALDREAMFAT-webfont.eot?#iefix') format('embedded-opentype'),
-         url('web/fonts/digital_dream/DIGITALDREAMFAT-webfont.woff') format('woff'),
-         url('web/fonts/digital_dream/DIGITALDREAMFAT-webfont.ttf') format('truetype'),
-         url('web/fonts/digital_dream/DIGITALDREAMFAT-webfont.svg#DigitaldreamFatRegular') format('svg');
+    src: url('DIGITALDREAMFAT-webfont.eot');
+    src: url('DIGITALDREAMFAT-webfont.eot?#iefix') format('embedded-opentype'),
+         url('DIGITALDREAMFAT-webfont.woff') format('woff'),
+         url('DIGITALDREAMFAT-webfont.ttf') format('truetype'),
+         url('DIGITALDREAMFAT-webfont.svg#DigitaldreamFatRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -26,11 +26,11 @@
 
 @font-face {
     font-family: 'DigitaldreamFatNarrowRegular';
-    src: url('web/fonts/digital_dream/DIGITALDREAMFATNARROW-webfont.eot');
-    src: url('web/fonts/digital_dream/DIGITALDREAMFATNARROW-webfont.eot?#iefix') format('embedded-opentype'),
-         url('web/fonts/digital_dream/DIGITALDREAMFATNARROW-webfont.woff') format('woff'),
-         url('web/fonts/digital_dream/DIGITALDREAMFATNARROW-webfont.ttf') format('truetype'),
-         url('web/fonts/digital_dream/DIGITALDREAMFATNARROW-webfont.svg#DigitaldreamFatNarrowRegular') format('svg');
+    src: url('DIGITALDREAMFATNARROW-webfont.eot');
+    src: url('DIGITALDREAMFATNARROW-webfont.eot?#iefix') format('embedded-opentype'),
+         url('DIGITALDREAMFATNARROW-webfont.woff') format('woff'),
+         url('DIGITALDREAMFATNARROW-webfont.ttf') format('truetype'),
+         url('DIGITALDREAMFATNARROW-webfont.svg#DigitaldreamFatNarrowRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 

@@ -5,6 +5,7 @@ Crafty.scene("loading", function() {
   var assets = [
     'web/images/switches.png?v='+version+''
     ,'web/images/lights.png?v='+version+''
+    ,'web/images/pushbutton_large.png?v='+version+''
   ];
   // Monitor browser resize events, like mobile orientation changes.
   $(window).resize( _.debounce( SCREEN.resize_callback, 500 ) );
@@ -28,8 +29,8 @@ Crafty.scene("loading", function() {
       initSprites();
       //when everything is loaded, run the main scene
       loadingText.destroy();
-      if (gameContainer.scene != undefined) {
-        Crafty.scene(gameContainer.scene);
+      if (gameContainer.sceneName != undefined) {
+        Crafty.scene(gameContainer.sceneName);
       }
     },
     function(e) {
@@ -46,5 +47,8 @@ function initSprites() {
   Crafty.sprite(30, 'web/images/lights.png?v='+version+'', {
     lamp_red: [0, 0]
     ,lamp_green: [1, 0]
+  });
+  Crafty.sprite(150, 'web/images/pushbutton_large.png?v='+version+'', {
+    pushbutton_large: [0, 0]
   });
 }

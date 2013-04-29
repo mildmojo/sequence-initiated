@@ -10,14 +10,21 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="744.09448819"
-   height="1052.3622047"
-   id="svg2"
-   version="1.1"
+   sodipodi:docname="sprites.svg"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="New document 1">
+   version="1.1"
+   id="svg2"
+   height="1052.3622047"
+   width="744.09448819">
   <defs
      id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="168.15078 : 345.5467 : 1"
+       inkscape:vp_y="0 : 947.47538 : 0"
+       inkscape:vp_z="1976.2864 : 303.12029 : 1"
+       inkscape:persp3d-origin="430.77172 : 179.36549 : 1"
+       id="perspective5369" />
     <linearGradient
        id="linearGradient5296">
       <stop
@@ -51,114 +58,6 @@
          offset="1"
          id="stop5256" />
     </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5252"
-       id="linearGradient5280"
-       gradientUnits="userSpaceOnUse"
-       x1="227.85713"
-       y1="447.00504"
-       x2="163.57144"
-       y2="311.29074" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5262"
-       id="linearGradient5282"
-       gradientUnits="userSpaceOnUse"
-       x1="149.28572"
-       y1="350.57648"
-       x2="149.28572"
-       y2="429.19937" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5252"
-       id="linearGradient5284"
-       gradientUnits="userSpaceOnUse"
-       x1="227.85713"
-       y1="447.00504"
-       x2="163.57144"
-       y2="311.29074" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5262"
-       id="linearGradient5286"
-       gradientUnits="userSpaceOnUse"
-       x1="149.28572"
-       y1="350.57648"
-       x2="149.28572"
-       y2="429.19937" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5262"
-       id="linearGradient5292"
-       gradientUnits="userSpaceOnUse"
-       x1="149.28572"
-       y1="350.57648"
-       x2="149.28572"
-       y2="429.19937" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5262"
-       id="linearGradient5294"
-       gradientUnits="userSpaceOnUse"
-       x1="149.28572"
-       y1="350.57648"
-       x2="149.28572"
-       y2="429.19937" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5296"
-       id="linearGradient5310"
-       x1="202.94408"
-       y1="351.94403"
-       x2="202.94408"
-       y2="438.88101"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5252"
-       id="linearGradient5320"
-       gradientUnits="userSpaceOnUse"
-       x1="227.85713"
-       y1="447.00504"
-       x2="163.57144"
-       y2="311.29074" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5262"
-       id="linearGradient5322"
-       gradientUnits="userSpaceOnUse"
-       x1="149.28572"
-       y1="350.57648"
-       x2="149.28572"
-       y2="429.19937" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5296"
-       id="linearGradient5324"
-       gradientUnits="userSpaceOnUse"
-       x1="202.94408"
-       y1="351.94403"
-       x2="202.94408"
-       y2="438.88101" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5252"
-       id="linearGradient5326"
-       gradientUnits="userSpaceOnUse"
-       x1="227.85713"
-       y1="447.00504"
-       x2="163.57144"
-       y2="311.29074" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5262"
-       id="linearGradient5328"
-       gradientUnits="userSpaceOnUse"
-       x1="149.28572"
-       y1="350.57648"
-       x2="149.28572"
-       y2="429.19937" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient5296"
@@ -212,9 +111,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="396.60348"
-     inkscape:cy="893.55285"
+     inkscape:zoom="0.72638625"
+     inkscape:cx="669.26168"
+     inkscape:cy="708.70884"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -222,7 +121,9 @@
      inkscape:window-height="850"
      inkscape:window-x="0"
      inkscape:window-y="25"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -239,6 +140,48 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="stroke:none"
+       id="rect3995"
+       width="288.02701"
+       height="242.02699"
+       x="599.16962"
+       y="304.86404" />
+    <g
+       id="g4043"
+       inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+       inkscape:export-xdpi="41.919998"
+       inkscape:export-ydpi="41.919998">
+      <rect
+         y="264.86404"
+         x="277.14261"
+         height="322.02701"
+         width="322.02701"
+         id="rect3223"
+         style="fill:none;stroke:none;fill-opacity:0.28125000000000000" />
+      <g
+         transform="matrix(0.89441942,0,0,0.8941554,29.260874,22.019118)"
+         id="g5390">
+        <path
+           style="fill:#a50000;fill-opacity:1;stroke:none"
+           d="m 277.14285,316.3332 296.39801,0 0,244.95281 -296.39801,0 z"
+           id="rect5367"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccc" />
+        <path
+           style="fill:#650000;fill-opacity:1;stroke:none"
+           d="m 277.14261,561.12626 296.35311,0 25.25382,25.71428 -296.35311,0 z"
+           id="rect5385"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccc" />
+        <path
+           sodipodi:nodetypes="ccccc"
+           inkscape:connector-curvature="0"
+           id="path5388"
+           d="m 599.16938,342.42933 -0.37881,244.5737 -25.33547,-25.72415 0,-244.95251 z"
+           style="fill:#4d0000;fill-opacity:1;stroke:none" />
+      </g>
+    </g>
     <g
        id="g5239"
        inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/switches.png"
@@ -305,7 +248,10 @@
     </g>
     <g
        id="g5330"
-       transform="matrix(1,0,0,0.9832811,-152,6.035653)">
+       transform="matrix(1,0,0,0.97872846,-152,7.6792901)"
+       inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/lights.png"
+       inkscape:export-xdpi="41.849998"
+       inkscape:export-ydpi="41.849998">
       <g
          transform="translate(49.00954,0)"
          id="g5312">
@@ -354,6 +300,156 @@
            style="fill:url(#linearGradient5346);fill-opacity:1;stroke:none"
            sodipodi:type="arc" />
       </g>
+    </g>
+    <g
+       id="g4050"
+       inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+       inkscape:export-xdpi="41.919998"
+       inkscape:export-ydpi="41.919998">
+      <rect
+         style="fill:none;stroke:none;fill-opacity:0.28125000000000000"
+         id="rect3993"
+         width="322.02701"
+         height="322.02701"
+         x="599.16962"
+         y="264.86404" />
+      <g
+         id="g5395"
+         transform="matrix(0.89441942,0,0,0.8941554,362.22855,32.935289)">
+        <path
+           style="fill:#a50000;fill-opacity:1;stroke:none"
+           d="m 277.1423,316.44486 296.39801,0 0,244.95281 -296.39801,0 z"
+           id="rect5397"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccc" />
+        <path
+           sodipodi:nodetypes="ccccc"
+           inkscape:connector-curvature="0"
+           id="path5399"
+           d="m 277.14261,561.12626 296.35311,0 13.14997,13.55643 -296.35311,0 z"
+           style="fill:#650000;fill-opacity:1;stroke:none" />
+        <path
+           style="fill:#4d0000;fill-opacity:1;stroke:none"
+           d="m 586.93725,330.22097 -0.37881,244.5737 -13.10334,-13.5158 0,-244.95251 z"
+           id="path5401"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccc" />
+      </g>
+    </g>
+    <g
+       id="g5415"
+       transform="matrix(0.99689538,0,0,0.99970533,645.91481,0.17294159)"
+       inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+       inkscape:export-xdpi="41.919998"
+       inkscape:export-ydpi="41.919998">
+      <rect
+         inkscape:export-ydpi="41.849998"
+         inkscape:export-xdpi="41.849998"
+         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+         y="264.77594"
+         x="277.14285"
+         height="296.39801"
+         width="296.39801"
+         id="rect5417"
+         style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path5419"
+         d="m 277.14261,561.12626 296.35311,0 25.25382,25.71428 -296.35311,0 z"
+         style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
+      <path
+         style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
+         d="m 599.16938,290.87214 -0.37881,296.0189 -25.33547,-25.72415 0,-296.39771 z"
+         id="path5421"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
+         d="m 277.14261,553.1239 296.35311,0 25.25382,25.71428 -296.35311,0 z"
+         id="path3997"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path3999"
+         d="m 277.14261,273.0413 296.35311,0 25.25382,25.71428 -296.35311,0 z"
+         style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path4001"
+         d="m 591.16938,298.8745 -0.37881,280.01418 -25.33547,-25.72415 0,-280.39299 z"
+         style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
+      <rect
+         style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
+         id="rect4003"
+         width="296.39801"
+         height="8.2324247"
+         x="277.14285"
+         y="264.77533"
+         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+         inkscape:export-xdpi="41.849998"
+         inkscape:export-ydpi="41.849998" />
+      <rect
+         inkscape:export-ydpi="41.849998"
+         inkscape:export-xdpi="41.849998"
+         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+         y="552.95917"
+         x="277.14285"
+         height="8.2324247"
+         width="296.39801"
+         id="rect4005"
+         style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
+      <rect
+         style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
+         id="rect4007"
+         width="280.05957"
+         height="8.1083126"
+         x="272.98822"
+         y="-573.52118"
+         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+         inkscape:export-xdpi="41.849998"
+         inkscape:export-ydpi="41.849998"
+         transform="matrix(0,1,-1,0,0,0)" />
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         inkscape:export-ydpi="41.849998"
+         inkscape:export-xdpi="41.849998"
+         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+         y="-599.09094"
+         x="298.73755"
+         height="8.1083126"
+         width="280.05957"
+         id="rect4009"
+         style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
+      <rect
+         style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
+         id="rect4011"
+         width="296.39801"
+         height="8.2324247"
+         x="302.29108"
+         y="578.72369"
+         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+         inkscape:export-xdpi="41.849998"
+         inkscape:export-ydpi="41.849998" />
+      <rect
+         inkscape:export-ydpi="41.849998"
+         inkscape:export-xdpi="41.849998"
+         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+         y="290.29599"
+         x="302.1694"
+         height="8.2324247"
+         width="296.39801"
+         id="rect4013"
+         style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
+      <path
+         style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
+         d="m 277.14261,264.7949 296.35311,0 25.25382,25.71428 -296.35311,0 z"
+         id="path4015"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
     </g>
   </g>
 </svg>

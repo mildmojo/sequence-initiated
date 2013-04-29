@@ -2,7 +2,8 @@ gameContainer = {
     env : 'prod',
     // env : 'dev',
     gameVersion : '0-0-1',
-    scene : 'main',
+    sceneName : 'main',
+    scene : {},
     version: function() {
       var today = new Date();
       var version = gameContainer.gameVersion;
@@ -29,9 +30,15 @@ window.onload = function() {
   var externals = {
     scripts: [
       'src/helpers.js?v='+version+''
+      ,'src/components/Offscreen.js?v='+version+''
+      ,'src/components/Scene.js?v='+version+''
       ,'src/components/MouseHover.js?v='+version+''
       ,'src/components/Text.js?v='+version+''
       ,'src/components/ToggleSwitch.js?v='+version+''
+      ,'src/components/RotarySwitch.js?v='+version+''
+      ,'src/components/PushButton.js?v='+version+''
+      ,'src/components/SevenSegment.js?v='+version+''
+      ,'src/components/DotMatrix.js?v='+version+''
     ]
     ,scenes: [
       'src/scenes/loading.js?v='+version+'',

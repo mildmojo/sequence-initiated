@@ -2,15 +2,17 @@
 Crafty.c( 'ToggleSwitch', {
   init: function() {
     this.requires( '2D, Canvas, Mouse, MouseHover' );
+    this._z = Layer.SPRITES
     this.value = false;
     this._allow_click = false;
     this._total_drag = 0;
     this._last_drag = null;
+    this._is_horizontal = false; // TODO
     self = this;
     this.bind( 'MouseDown', this._click );
     this.bind( 'MouseMove', this._drag );
     this.bind( 'MouseOut', this._reset_drag );
-    this.bind( 'MouseUp', this._reset_drag )
+    this.bind( 'MouseUp', this._reset_drag );
     return this;
   }
 
