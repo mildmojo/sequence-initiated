@@ -203,6 +203,7 @@ var SCREEN = {
 //   'Timer' instead of 'this'
 var Timer = {
   _lastTick:  null
+  ,now:       new Date()
   ,dt:        0
 
   ,init: function() {
@@ -210,13 +211,13 @@ var Timer = {
   }
 
   ,tick: function() {
-    now = new Date;
+    Timer.now = Timer.realNow();
 
-    if ( Timer._lastTick == null ) Timer._lastTick = now;
+    if ( Timer._lastTick == null ) Timer._lastTick = Timer.now;
 
-    Timer.dt = (now - Timer._lastTick) / 1000;
-    Timer._lastTick = now;
+    Timer.dt = (Timer.now - Timer._lastTick) / 1000;
+    Timer._lastTick = Timer.now;
   }
 
-  ,now: function() { return new Date; }
+  ,realNow: function() { return new Date(); }
 };

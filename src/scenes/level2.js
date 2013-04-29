@@ -25,6 +25,9 @@ function mainCreateUI() {
   });
 
   // Create UI elements
+  this.status = Crafty.e( 'DotMatrix' )
+    .setup({ fontSize: 20 });
+
   this.readout = Crafty.e( 'SevenSegment, Offscreen' )
     .setup({ digits: 3, val: 0, fontSize: 36 });
 
@@ -72,13 +75,20 @@ function mainResizeUI() {
   var light_width   = this.light_width;
   var readout_width = this.readout_width;
   var button_width  = this.button_width;
+  var status_height = this.status._h * 3;
 
   var width   = Math.round( toggle_width * (toggle_count / 2)  + button_width );
-  var height  = Math.round( toggle_width * 2.25 );
+  var height  = Math.round( toggle_width * 2.25 ) + status_height;
   var left    = SCREEN.center_in_x(width);
   var top     = SCREEN.center_in_y(height);
 
   // Arrange UI elements
+  // this.status.attr({x: 20, y: 0});
+  this.status.attr({ x: left, y: top });
+  this.status.width(width);
+  top += status_height;
+  height -= status_height;
+
   for ( var i = 0; i < toggle_count / 2; i++ ) {
     var toggle_x = left + i * toggle_width;
     var light_x = toggle_x - light_width + toggle_width * 0.2;
@@ -94,14 +104,17 @@ function mainResizeUI() {
   }
 
   this.readout.attr({ x: left + width - button_width, y: top });
+
   this.launch_button
-    .attr({ x: left + width - button_width, y: top + height - button_width, z: Layer.SPRITES,
+    .attr({ x: left + width - button_width, y: top + height - button_width * 0.88, z: Layer.SPRITES,
             w: button_width, h: button_width });
+
+  this.status.write('SEQUENCE INITIATED');
 }
 
 function mainShowVictory() {
   var self = this;
   this.status.write( 'Sequence Complete.', function() {
-    SCREEN.fadeToBlack(500, function() { Crafty.scene( 'level4' ) });
+    SCREEN.fadeToBlack(500, function() { Crafty.scene( 'level3' ) });
   } );
 }

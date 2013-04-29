@@ -112,8 +112,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.72638625"
-     inkscape:cx="669.26168"
-     inkscape:cy="708.70884"
+     inkscape:cx="616.38277"
+     inkscape:cy="803.80926"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -147,41 +147,6 @@
        height="242.02699"
        x="599.16962"
        y="304.86404" />
-    <g
-       id="g4043"
-       inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
-       inkscape:export-xdpi="41.919998"
-       inkscape:export-ydpi="41.919998">
-      <rect
-         y="264.86404"
-         x="277.14261"
-         height="322.02701"
-         width="322.02701"
-         id="rect3223"
-         style="fill:none;stroke:none;fill-opacity:0.28125000000000000" />
-      <g
-         transform="matrix(0.89441942,0,0,0.8941554,29.260874,22.019118)"
-         id="g5390">
-        <path
-           style="fill:#a50000;fill-opacity:1;stroke:none"
-           d="m 277.14285,316.3332 296.39801,0 0,244.95281 -296.39801,0 z"
-           id="rect5367"
-           inkscape:connector-curvature="0"
-           sodipodi:nodetypes="ccccc" />
-        <path
-           style="fill:#650000;fill-opacity:1;stroke:none"
-           d="m 277.14261,561.12626 296.35311,0 25.25382,25.71428 -296.35311,0 z"
-           id="rect5385"
-           inkscape:connector-curvature="0"
-           sodipodi:nodetypes="ccccc" />
-        <path
-           sodipodi:nodetypes="ccccc"
-           inkscape:connector-curvature="0"
-           id="path5388"
-           d="m 599.16938,342.42933 -0.37881,244.5737 -25.33547,-25.72415 0,-244.95251 z"
-           style="fill:#4d0000;fill-opacity:1;stroke:none" />
-      </g>
-    </g>
     <g
        id="g5239"
        inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/switches.png"
@@ -302,154 +267,230 @@
       </g>
     </g>
     <g
-       id="g4050"
+       id="g4082"
        inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
        inkscape:export-xdpi="41.919998"
        inkscape:export-ydpi="41.919998">
-      <rect
-         style="fill:none;stroke:none;fill-opacity:0.28125000000000000"
-         id="rect3993"
-         width="322.02701"
-         height="322.02701"
-         x="599.16962"
-         y="264.86404" />
       <g
-         id="g5395"
-         transform="matrix(0.89441942,0,0,0.8941554,362.22855,32.935289)">
-        <path
-           style="fill:#a50000;fill-opacity:1;stroke:none"
-           d="m 277.1423,316.44486 296.39801,0 0,244.95281 -296.39801,0 z"
-           id="rect5397"
-           inkscape:connector-curvature="0"
-           sodipodi:nodetypes="ccccc" />
-        <path
-           sodipodi:nodetypes="ccccc"
-           inkscape:connector-curvature="0"
-           id="path5399"
-           d="m 277.14261,561.12626 296.35311,0 13.14997,13.55643 -296.35311,0 z"
-           style="fill:#650000;fill-opacity:1;stroke:none" />
-        <path
-           style="fill:#4d0000;fill-opacity:1;stroke:none"
-           d="m 586.93725,330.22097 -0.37881,244.5737 -13.10334,-13.5158 0,-244.95251 z"
-           id="path5401"
-           inkscape:connector-curvature="0"
-           sodipodi:nodetypes="ccccc" />
+         inkscape:export-ydpi="41.919998"
+         inkscape:export-xdpi="41.919998"
+         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+         id="g4043">
+        <rect
+           style="fill:none;stroke:none;fill-opacity:0.28125000000000000"
+           id="rect3223"
+           width="322.02701"
+           height="322.02701"
+           x="277.14261"
+           y="264.86404" />
+        <g
+           id="g5390"
+           transform="matrix(0.89441942,0,0,0.8941554,29.260874,22.019118)">
+          <path
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             id="rect5367"
+             d="m 288.32328,316.3332 285.21758,0 0,244.95281 -285.21758,0 z"
+             style="fill:#a50000;fill-opacity:1;stroke:none" />
+          <path
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             id="rect5385"
+             d="m 288.32304,561.12626 285.17268,0 25.25382,25.71428 -285.17268,0 z"
+             style="fill:#650000;fill-opacity:1;stroke:none" />
+          <path
+             style="fill:#4d0000;fill-opacity:1;stroke:none"
+             d="m 599.16938,342.42933 -0.37881,244.5737 -25.33547,-25.72415 0,-244.95251 z"
+             id="path5388"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccc" />
+        </g>
+      </g>
+      <g
+         inkscape:export-ydpi="41.919998"
+         inkscape:export-xdpi="41.919998"
+         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+         id="g4050">
+        <rect
+           y="264.86404"
+           x="599.16962"
+           height="322.02701"
+           width="322.02701"
+           id="rect3993"
+           style="fill:none;stroke:none;fill-opacity:0.28125000000000000" />
+        <g
+           transform="matrix(0.89441942,0,0,0.8941554,362.22855,32.935289)"
+           id="g5395">
+          <path
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             id="rect5397"
+             d="m 288.32273,316.44486 285.21758,0 0,244.95281 -285.21758,0 z"
+             style="fill:#a50000;fill-opacity:1;stroke:none" />
+          <path
+             style="fill:#650000;fill-opacity:1;stroke:none"
+             d="m 288.32304,561.12626 285.17268,0 13.14997,13.55643 -285.17268,0 z"
+             id="path5399"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccc" />
+          <path
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             id="path5401"
+             d="m 586.93725,330.22097 -0.37881,244.5737 -13.10334,-13.5158 0,-244.95251 z"
+             style="fill:#4d0000;fill-opacity:1;stroke:none" />
+        </g>
+      </g>
+      <g
+         inkscape:export-ydpi="41.919998"
+         inkscape:export-xdpi="41.919998"
+         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+         id="g4063">
+        <g
+           id="g5415"
+           transform="matrix(0.99689538,0,0,0.99970533,645.91481,0.17294159)"
+           inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+           inkscape:export-xdpi="41.919998"
+           inkscape:export-ydpi="41.919998">
+          <rect
+             inkscape:export-ydpi="41.849998"
+             inkscape:export-xdpi="41.849998"
+             inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+             y="264.77594"
+             x="277.14285"
+             height="296.39801"
+             width="296.39801"
+             id="rect5417"
+             style="fill:#787cff;fill-opacity:0.765625;stroke:none" />
+          <path
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             id="path5419"
+             d="m 277.14261,561.12626 296.35311,0 25.25382,25.71428 -296.35311,0 z"
+             style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
+          <path
+             style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
+             d="m 599.16938,290.87214 -0.37881,296.0189 -25.33547,-25.72415 0,-296.39771 z"
+             id="path5421"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccc" />
+          <path
+             style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
+             d="m 277.14261,553.1239 296.35311,0 25.25382,25.71428 -296.35311,0 z"
+             id="path3997"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccc" />
+          <path
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             id="path3999"
+             d="m 277.14261,273.0413 296.35311,0 25.25382,25.71428 -296.35311,0 z"
+             style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
+          <path
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             id="path4001"
+             d="m 591.16938,298.8745 -0.37881,280.01418 -25.33547,-25.72415 0,-280.39299 z"
+             style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
+          <rect
+             style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
+             id="rect4003"
+             width="296.39801"
+             height="8.2324247"
+             x="277.14285"
+             y="264.77533"
+             inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+             inkscape:export-xdpi="41.849998"
+             inkscape:export-ydpi="41.849998" />
+          <rect
+             inkscape:export-ydpi="41.849998"
+             inkscape:export-xdpi="41.849998"
+             inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+             y="552.95917"
+             x="277.14285"
+             height="8.2324247"
+             width="296.39801"
+             id="rect4005"
+             style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
+          <rect
+             style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
+             id="rect4007"
+             width="280.05957"
+             height="8.1083126"
+             x="272.98822"
+             y="-573.52118"
+             inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+             inkscape:export-xdpi="41.849998"
+             inkscape:export-ydpi="41.849998"
+             transform="matrix(0,1,-1,0,0,0)" />
+          <rect
+             transform="matrix(0,1,-1,0,0,0)"
+             inkscape:export-ydpi="41.849998"
+             inkscape:export-xdpi="41.849998"
+             inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+             y="-599.09094"
+             x="298.73755"
+             height="8.1083126"
+             width="280.05957"
+             id="rect4009"
+             style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
+          <rect
+             style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
+             id="rect4011"
+             width="296.39801"
+             height="8.2324247"
+             x="302.29108"
+             y="578.72369"
+             inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+             inkscape:export-xdpi="41.849998"
+             inkscape:export-ydpi="41.849998" />
+          <rect
+             inkscape:export-ydpi="41.849998"
+             inkscape:export-xdpi="41.849998"
+             inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+             y="290.29599"
+             x="302.1694"
+             height="8.2324247"
+             width="296.39801"
+             id="rect4013"
+             style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
+          <path
+             style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
+             d="m 277.14261,264.7949 296.35311,0 25.25382,25.71428 -296.35311,0 z"
+             id="path4015"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccc" />
+        </g>
+        <text
+           transform="matrix(0.82242387,-0.49064524,0.41730633,0.96695957,0,0)"
+           xml:space="preserve"
+           style="font-size:60.26252365px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d8d7ff;fill-opacity:0.68229167;stroke:none;font-family:Black Ops One;-inkscape-font-specification:Black Ops One Bold"
+           x="854.80255"
+           y="838.25494"
+           id="text4057"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4059"
+             x="854.80255"
+             y="838.25494"
+             style="font-size:60.26252365px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#d8d7ff;fill-opacity:0.68229167;font-family:Black Ops One;-inkscape-font-specification:Black Ops One Bold">SAFETY</tspan><tspan
+             sodipodi:role="line"
+             x="854.80255"
+             y="913.58307"
+             id="tspan4061"
+             style="font-size:60.26252365px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#d8d7ff;fill-opacity:0.68229167;font-family:Black Ops One;-inkscape-font-specification:Black Ops One Bold">LOCKOUT</tspan></text>
       </g>
     </g>
-    <g
-       id="g5415"
-       transform="matrix(0.99689538,0,0,0.99970533,645.91481,0.17294159)"
-       inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
-       inkscape:export-xdpi="41.919998"
-       inkscape:export-ydpi="41.919998">
-      <rect
-         inkscape:export-ydpi="41.849998"
-         inkscape:export-xdpi="41.849998"
-         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
-         y="264.77594"
-         x="277.14285"
-         height="296.39801"
-         width="296.39801"
-         id="rect5417"
-         style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
-      <path
-         sodipodi:nodetypes="ccccc"
-         inkscape:connector-curvature="0"
-         id="path5419"
-         d="m 277.14261,561.12626 296.35311,0 25.25382,25.71428 -296.35311,0 z"
-         style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
-      <path
-         style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
-         d="m 599.16938,290.87214 -0.37881,296.0189 -25.33547,-25.72415 0,-296.39771 z"
-         id="path5421"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="ccccc" />
-      <path
-         style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
-         d="m 277.14261,553.1239 296.35311,0 25.25382,25.71428 -296.35311,0 z"
-         id="path3997"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="ccccc" />
-      <path
-         sodipodi:nodetypes="ccccc"
-         inkscape:connector-curvature="0"
-         id="path3999"
-         d="m 277.14261,273.0413 296.35311,0 25.25382,25.71428 -296.35311,0 z"
-         style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
-      <path
-         sodipodi:nodetypes="ccccc"
-         inkscape:connector-curvature="0"
-         id="path4001"
-         d="m 591.16938,298.8745 -0.37881,280.01418 -25.33547,-25.72415 0,-280.39299 z"
-         style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
-      <rect
-         style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
-         id="rect4003"
-         width="296.39801"
-         height="8.2324247"
-         x="277.14285"
-         y="264.77533"
-         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
-         inkscape:export-xdpi="41.849998"
-         inkscape:export-ydpi="41.849998" />
-      <rect
-         inkscape:export-ydpi="41.849998"
-         inkscape:export-xdpi="41.849998"
-         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
-         y="552.95917"
-         x="277.14285"
-         height="8.2324247"
-         width="296.39801"
-         id="rect4005"
-         style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
-      <rect
-         style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
-         id="rect4007"
-         width="280.05957"
-         height="8.1083126"
-         x="272.98822"
-         y="-573.52118"
-         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
-         inkscape:export-xdpi="41.849998"
-         inkscape:export-ydpi="41.849998"
-         transform="matrix(0,1,-1,0,0,0)" />
-      <rect
-         transform="matrix(0,1,-1,0,0,0)"
-         inkscape:export-ydpi="41.849998"
-         inkscape:export-xdpi="41.849998"
-         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
-         y="-599.09094"
-         x="298.73755"
-         height="8.1083126"
-         width="280.05957"
-         id="rect4009"
-         style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
-      <rect
-         style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
-         id="rect4011"
-         width="296.39801"
-         height="8.2324247"
-         x="302.29108"
-         y="578.72369"
-         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
-         inkscape:export-xdpi="41.849998"
-         inkscape:export-ydpi="41.849998" />
-      <rect
-         inkscape:export-ydpi="41.849998"
-         inkscape:export-xdpi="41.849998"
-         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
-         y="290.29599"
-         x="302.1694"
-         height="8.2324247"
-         width="296.39801"
-         id="rect4013"
-         style="fill:#0005a5;fill-opacity:0.28125;stroke:none" />
-      <path
-         style="fill:#0005a5;fill-opacity:0.28125;stroke:none"
-         d="m 277.14261,264.7949 296.35311,0 25.25382,25.71428 -296.35311,0 z"
-         id="path4015"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="ccccc" />
-    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="923.75098"
+       y="200.19847"
+       id="text3054"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3056"
+         x="923.75098"
+         y="200.19847">Font: Black Ops One</tspan></text>
   </g>
 </svg>
