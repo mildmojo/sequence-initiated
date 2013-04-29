@@ -2,7 +2,7 @@ gameContainer = {
     env : 'prod',
     // env : 'dev',
     gameVersion : '0-0-1',
-    sceneName : 'main',
+    sceneName : 'level2',
     scene : {},
     version: function() {
       var today = new Date();

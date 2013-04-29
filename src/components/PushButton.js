@@ -15,7 +15,7 @@ Crafty.c( 'PushButton', {
     this._sprites.main = Crafty.e( '2D, Canvas, Mouse, MouseHover' ).attr({ z: Layer.SPRITES });
     this._sprites.label = Crafty.e( '2D, Canvas, Mouse, MouseHover, Text' )
       .attr({ z: Layer.SPRITES + 1 })
-      .textColor('#FFFFFF')
+      .textColor('#EEEEEE')
       .textFont({ family: this._label_font + ', Impact, Sans' });
     this._sprites.lock = Crafty.e( '2D, Canvas, Tween' ).attr({ z: Layer.SPRITES + 2 });
 
@@ -88,7 +88,7 @@ Crafty.c( 'PushButton', {
     _([ this._sprites.main, this._sprites.lock ]).each(function(sprite){
       sprite.removeComponent( 'pushbutton_'+self._sprite_name )
         .addComponent( 'pushbutton_'+self._sprite_name )
-        .attr({ x: self._x, y: self._y, z: self._z, w: self._w, h: self._h });
+        .attr({ x: self._x, y: self._y, w: self._w, h: self._h });
     })
     this._sprites.lock.sprite(2, 0);
   }
