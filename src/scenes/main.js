@@ -26,10 +26,10 @@ function mainCreateUI() {
 
   // Create UI elements
   this.readout = Crafty.e( 'SevenSegment, Offscreen' )
-    .setup({ digits: 3, val: 0, fontSize: 40 });
+    .setup({ digits: 3, val: 0, fontSize: 36 });
 
   this.launch_button = Crafty.e( 'PushButton' )
-    .setup({ label: 'LAUNCH', fontSize: 20, sprite: 'large' })
+    .setup({ label: 'LAUNCH', fontSize: 24, sprite: 'large' })
     .bind( 'ButtonDown', function() { self._show_victory() } );
 
   function toggle_lamp(lamp) {
