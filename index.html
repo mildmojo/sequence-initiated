@@ -17,7 +17,7 @@
   <script src="src/libs/modernizr-2.5.3.min.js"></script>
   <script src="src/libs/viewporter.js"></script>
 
-  <link href='http://fonts.googleapis.com/css?family=Black+Ops+One|Russo+One|Gruppo|Source+Code+Pro:400,200' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Black+Ops+One|Russo+One|Source+Code+Pro:400,200' rel='stylesheet' type='text/css'>
   <link href='web/fonts/bpdots/stylesheet.css' rel='stylesheet' type='text/css'>
   <link href='web/fonts/digital_dream/stylesheet.css' rel='stylesheet' type='text/css'>
   <style type="text/css">body {-webkit-tap-highlight-color: rgba(0,0,0,0);  margin: 0;}</style>
@@ -44,12 +44,15 @@
 
   <!-- Setup google analytics -->
   <script>
-    /*
-    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-*/
+    if (gameContainer.env !== 'dev') {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-37965656-3', 'github.com');
+      ga('send', 'pageview');
+    }
   </script>
 </body>
 </html>

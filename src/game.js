@@ -72,7 +72,21 @@ window.onload = function() {
 
   require(externals.scripts, function() {
     require(externals.scenes, function() {
-      Crafty.scene('loading');
+      // Init these helpers ASAP.
+      SCREEN.init();
+      Timer.init();
+
+      // Game pauses in portrait mode; wait for unpause before changing scenes.
+      if ( SCREEN.is_portrait() ) {
+        Crafty.bind( 'Unpause', next_scene );
+      } else {
+        next_scene();
+      }
     });
   });
 };
+
+function next_scene() {
+  Crafty.unbind( 'Unpause', next_scene );
+  Crafty.scene('loading');
+}
