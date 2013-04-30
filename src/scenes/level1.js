@@ -33,6 +33,8 @@ function level1CreateUI() {
   this.toggle = Crafty.e( 'ToggleSwitch' )
     .switchType( 'small_toggle' )
     .bind( 'Toggle', function(is_on) {
+      self.readout.val(is_on ? 'OK' : '--');
+      self.readout.setGoodValue(is_on);
       self.lamp.sprite(is_on ? 1 : 0, 0);
       self.launch_button.setLock( !is_on );
     });
@@ -78,7 +80,6 @@ function level1ResizeUI() {
 }
 
 function level1ShowVictory() {
-console.log('victory');
   this.launch_button.setLock(true);
 
   this.status
