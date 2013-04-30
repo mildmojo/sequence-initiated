@@ -39,11 +39,13 @@ window.onload = function() {
       ,'src/components/PushButton.js?v='+version+''
       ,'src/components/SevenSegment.js?v='+version+''
       ,'src/components/DotMatrix.js?v='+version+''
+      ,'src/components/RoundGauge.js?v='+version+''
     ]
     ,scenes: [
       'src/scenes/loading.js?v='+version+'',
       'src/scenes/level1.js?v='+version+'',
       'src/scenes/level2.js?v='+version+'',
+      'src/scenes/level4.js?v='+version+'',
     ]
   }
 

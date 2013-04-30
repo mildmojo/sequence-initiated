@@ -6,6 +6,7 @@ Crafty.scene("loading", function() {
     'web/images/switches.png?v='+version+''
     ,'web/images/lights.png?v='+version+''
     ,'web/images/pushbutton_large.png?v='+version+''
+    ,'web/images/dial_medium.png?v='+version+''
   ];
   // Monitor browser resize events, like mobile orientation changes.
   $(window).resize( _.debounce( SCREEN.resize_callback, 500 ) );
@@ -50,5 +51,8 @@ function initSprites() {
   });
   Crafty.sprite(150, 'web/images/pushbutton_large.png?v='+version+'', {
     pushbutton_large: [0, 0]
+  });
+  Crafty.sprite(105, 'web/images/dial_medium.png?v='+version+'', {
+    dial_medium: [0, 0]
   });
 }

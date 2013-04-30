@@ -120,6 +120,6 @@ function level2ShowVictory() {
   this.status
     .write( 'Sequence Complete.' )
     .bind( 'MidFinish', function(){
-      SCREEN.fadeToBlack(1000, function() { Crafty.scene( 'level2' ) });
+      SCREEN.fadeToBlack(1000, function() { Crafty.scene( 'level4' ) });
     });
 }
