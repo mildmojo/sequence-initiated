@@ -2,7 +2,7 @@ gameContainer = {
     env : 'prod',
     // env : 'dev',
     gameVersion : '0-0-1',
-    sceneName : 'level2',
+    sceneName : 'level1',
     scene : {},
     version: function() {
       var today = new Date();
@@ -42,7 +42,8 @@ window.onload = function() {
     ]
     ,scenes: [
       'src/scenes/loading.js?v='+version+'',
-      'src/scenes/main.js?v='+version+'',
+      'src/scenes/level1.js?v='+version+'',
+      'src/scenes/level2.js?v='+version+'',
     ]
   }
 
