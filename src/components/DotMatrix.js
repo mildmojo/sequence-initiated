@@ -48,8 +48,6 @@ Crafty.c( 'DotMatrix', {
   ,fontSize: function(size) {
     this.textFont({ size: size+'px' });
     this._h = Math.round(size * 0.9);
-    //this.css( 'height', Math.round(size*0.5)+'px' );
-    console.log([this.css('height'), this._h]);
   }
 
   ,write: function(new_text) {
