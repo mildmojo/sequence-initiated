@@ -2,9 +2,12 @@ Crafty.c( 'SevenSegment', {
   init: function(){
     this.requires( '2D, DOM, Text' );
     this._z = Layer.SPRITES;
-    this.textColor('#FF00000');
+    this._good_color = '#00EE00';
+    this._bad_color  = '#EE0000';
+    this.textColor(this._bad_color);
     this.textFont({ family: 'DigitaldreamFatNarrowRegular, Impact, Helvetica, Arial' });
     this.css( 'background', '#111' );
+
     return this;
   }
 
@@ -26,6 +29,11 @@ Crafty.c( 'SevenSegment', {
       this.val(this._value);
     }
     return this._digitsize;
+  }
+
+  ,setGoodValue: function(is_good) {
+    this.textColor( is_good ? this._good_color : this._bad_color );
+    return this;
   }
 
   ,val: function(new_val){

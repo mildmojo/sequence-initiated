@@ -9,7 +9,6 @@ Crafty.c( 'DotMatrix', {
       ,_z:                      Layer.HUD_FG
       ,_ms_per_char:            30
       ,_ms_whole_message_pause: 2000
-      ,_on_finish:              null
       ,_centered_space_count:   -1
     });
 
@@ -53,9 +52,7 @@ Crafty.c( 'DotMatrix', {
     console.log([this.css('height'), this._h]);
   }
 
-  ,write: function(new_text, callback) {
-    // Prepend number of spaces equal to _w
-    // enable scroll
+  ,write: function(new_text) {
     var self = this;
     var space_width = this._measure_text(' ');
     var space_count = Math.ceil( SCREEN.css_width(this) / space_width );
@@ -75,11 +72,10 @@ Crafty.c( 'DotMatrix', {
     this._centered_space_count =
       Math.floor( (SCREEN.css_width(this) - this._measure_text(this._text_body)) / this._measure_text('  ') );
 
-    // Setup a callback to fire after message pause (short msgs) or after
-    // message clears the display (long messages)
-    this._on_finish = callback;
-
+    // Start subtracting characters from the front of the string.
     this._start_animating();
+
+    return this;
   }
 
   ,_start_animating: function() {
@@ -88,6 +84,8 @@ Crafty.c( 'DotMatrix', {
   }
 
   ,_finish_animating: function() {
+    // FinalFinish triggers after message clears the display (long messages).
+    this.trigger( 'FinalFinish' );
     this._is_animating = false;
   }
 
@@ -118,14 +116,24 @@ Crafty.c( 'DotMatrix', {
   // Is the whole, unclipped message onscreen right now?
   ,_whole_message_onscreen: function() {
     var target_space_count = this._centered_space_count;
-    var current_spaces = this.text().length - this._text_body.length;
+    var current_spaces = this._leading_space_count();
 
-    return target_space_count > 0 && current_spaces == target_space_count;
+    // Fire the MidFinish event after the message pauses.
+    if ( target_space_count >= 0 && current_spaces == target_space_count - 1 ) {
+      this.trigger( 'MidFinish' );
+    }
+
+    return target_space_count >= 0 && current_spaces == target_space_count;
   }
 
   // Should pause while entire message is displayed?
   ,_whole_message_pause: function() {
     return this._whole_message_onscreen() && this._elapsed() < this._ms_whole_message_pause;
+  }
+
+  // Return the number of leading spaces left in the current display string.
+  ,_leading_space_count: function() {
+    return this.text().length - this._text_body.length;
   }
 
   ,_buffer_empty: function() {

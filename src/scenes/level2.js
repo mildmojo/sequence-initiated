@@ -1,14 +1,14 @@
-Crafty.scene("main", function() {
+Crafty.scene("level2", function() {
   Crafty.background('#CCC');
 
   SCREEN.fadeFromBlack(500, function() {
-    var scene = Crafty.e( 'Scene' ).callbacks( mainCreateUI, mainResizeUI );
-    scene._show_victory = mainShowVictory;
+    var scene = Crafty.e( 'Scene' ).callbacks( level2CreateUI, level2ResizeUI );
+    scene._show_victory = level2ShowVictory;
   })
 });
 
 // Create UI elements, add behaviors
-function mainCreateUI() {
+function level2CreateUI() {
   var self = this;
   _(this).extend({
     upper_toggles: []
@@ -43,7 +43,9 @@ function mainCreateUI() {
     var value = 100 / self.toggle_count;
     self._system_energy += is_on ? value : -value;
     self.readout.val( Math.round(self._system_energy) );
-    self.launch_button.setLock( Math.round( self._system_energy ) != 100 );
+    var ready_for_launch = Math.round( self._system_energy ) == 100;
+    self.launch_button.setLock( !ready_for_launch );
+    self.readout.setGoodValue( ready_for_launch );
   }
 
   for ( var i = 0; i < this.toggle_count / 2; i++ ) {
@@ -69,7 +71,7 @@ function mainCreateUI() {
 }
 
 // Draw UI elements; called when window is resized.
-function mainResizeUI() {
+function level2ResizeUI() {
   var toggle_width  = this.toggle_width;
   var toggle_count  = this.toggle_count;
   var light_width   = this.light_width;
@@ -77,7 +79,7 @@ function mainResizeUI() {
   var button_width  = this.button_width;
   var status_height = this.status._h * 3;
 
-  var width   = Math.round( toggle_width * (toggle_count / 2)  + button_width );
+  var width   = Math.round( (toggle_width + light_width / 2) * (toggle_count / 2)  + button_width );
   var height  = Math.round( toggle_width * 2.25 ) + status_height;
   var left    = SCREEN.center_in_x(width);
   var top     = SCREEN.center_in_y(height);
@@ -90,8 +92,8 @@ function mainResizeUI() {
   height -= status_height;
 
   for ( var i = 0; i < toggle_count / 2; i++ ) {
-    var toggle_x = left + i * toggle_width;
-    var light_x = toggle_x - light_width + toggle_width * 0.2;
+    var light_x = left + i * (toggle_width + light_width * 0.2);
+    var toggle_x = light_x + light_width * 0.5;
 
     this.upper_toggles[i].attr({ x: toggle_x, y: top,
                       w: toggle_width, h: toggle_width });
@@ -112,9 +114,12 @@ function mainResizeUI() {
   this.status.write('SEQUENCE INITIATED');
 }
 
-function mainShowVictory() {
-  var self = this;
-  this.status.write( 'Sequence Complete.', function() {
-    SCREEN.fadeToBlack(500, function() { Crafty.scene( 'level3' ) });
-  } );
+function level2ShowVictory() {
+  this.launch_button.setLock(true);
+
+  this.status
+    .write( 'Sequence Complete.' )
+    .bind( 'MidFinish', function(){
+      SCREEN.fadeToBlack(1000, function() { Crafty.scene( 'level2' ) });
+    });
 }
