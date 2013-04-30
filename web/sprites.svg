@@ -111,9 +111,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.72638625"
-     inkscape:cx="616.38277"
-     inkscape:cy="803.80926"
+     inkscape:zoom="1.28"
+     inkscape:cx="888.32134"
+     inkscape:cy="294.2181"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -132,7 +132,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -492,5 +492,64 @@
          id="tspan3056"
          x="923.75098"
          y="200.19847">Font: Black Ops One</tspan></text>
+    <g
+       id="g3870"
+       transform="matrix(0.99663995,0,0,0.99663995,-124.90444,0.64528626)"
+       inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/rotary_large.png"
+       inkscape:export-xdpi="41.919998"
+       inkscape:export-ydpi="41.919998">
+      <path
+         transform="matrix(1.8237703,0,0,1.8237703,-93.303737,-497.50931)"
+         d="m 334.53276,715.07605 c 0,60.82546 -49.30878,110.13425 -110.13425,110.13425 -60.82546,0 -110.13424,-49.30879 -110.13424,-110.13425 0,-60.82547 49.30878,-110.13425 110.13424,-110.13425 60.82547,0 110.13425,49.30878 110.13425,110.13425 z"
+         sodipodi:ry="110.13425"
+         sodipodi:rx="110.13425"
+         sodipodi:cy="715.07605"
+         sodipodi:cx="224.39851"
+         id="path3866"
+         style="fill:none;stroke:#000000;stroke-width:4.40130615;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         sodipodi:type="arc" />
+      <rect
+         ry="17.208475"
+         y="881.65411"
+         x="298.73914"
+         height="100.4975"
+         width="34.41695"
+         id="rect3868"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:8;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <path
+       sodipodi:type="arc"
+       style="fill:#ffffff;fill-opacity:0.765625;stroke:#000000;stroke-width:8;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path3059"
+       sodipodi:cx="579.58148"
+       sodipodi:cy="713.6994"
+       sodipodi:rx="108.75757"
+       sodipodi:ry="108.75757"
+       d="m 673.7683,768.07819 a 108.75757,108.75757 0 1 1 0,-108.75758 l -94.18682,54.37879 z"
+       transform="matrix(0,-1,1,0,-134.11792,1293.2809)"
+       sodipodi:start="0.52359878"
+       sodipodi:end="5.7595865" />
+    <path
+       transform="matrix(0,-1,1,0,120.56752,1305.671)"
+       d="m 688.33905,713.6994 a 108.75757,108.75757 0 1 1 -217.51514,0 108.75757,108.75757 0 1 1 217.51514,0 z"
+       sodipodi:ry="108.75757"
+       sodipodi:rx="108.75757"
+       sodipodi:cy="713.6994"
+       sodipodi:cx="579.58148"
+       id="path3829"
+       style="fill:#ac0000;fill-opacity:1;stroke:#000000;stroke-width:8;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:type="arc" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#0dff2b;fill-opacity:1;stroke:none"
+       id="path3831"
+       sodipodi:cx="579.58148"
+       sodipodi:cy="713.6994"
+       sodipodi:rx="104.89057"
+       sodipodi:ry="104.89057"
+       d="m 670.41938,661.25411 a 104.89057,104.89057 0 0 1 0,104.89058 l -90.8379,-52.44529 z"
+       transform="matrix(0,-1,1,0,120.56752,1305.671)"
+       sodipodi:start="5.7595865"
+       sodipodi:end="6.8067841" />
   </g>
 </svg>
