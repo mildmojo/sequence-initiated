@@ -38,25 +38,54 @@ var SCREEN = {
   ,HEIGHT:    0
   ,mouseDown: false
   ,_mask:     null
+  ,_reminder: null
 
   ,init: function() {
-    Crafty.addEvent( this, 'resize', SCREEN.resize_callback );
-    Crafty.addEvent( this, 'mousedown', function(){ SCREEN.mouseDown = true } );
-    Crafty.addEvent( this, 'mouseup',   function(){ SCREEN.mouseDown = false } );
-    SCREEN._setupProportionalCanvas();
+    $(window).on( 'resize',    _.debounce( SCREEN.resize_callback, 250 ) );
+    $(window).on( 'mousedown', function(){ SCREEN.mouseDown = true } );
+    $(window).on( 'mouseup',   function(){ SCREEN.mouseDown = false } );
+    SCREEN.resize_callback();
   }
 
   ,resize_callback: function(){
     SCREEN._setupProportionalCanvas();
     if ( SCREEN.is_portrait() ) {
-      SCREEN.fadeToBlack(500, function(){
-        Crafty.pause(true);
+      SCREEN._update_reminder();
+      SCREEN.fadeToBlack(500, function() {
+        Crafty.pause(true)
       });
     } else if ( Crafty.isPaused() ) {
       Crafty.pause(false);
+      SCREEN._destroy_reminder();
       SCREEN.fadeFromBlack(250);
     }
     Crafty.trigger( 'WindowResize' );
+  }
+
+  ,_create_reminder: function() {
+    return Crafty.e( '2D, DOM, Text, Offscreen' )
+      .textFont({ family: 'Russo One, Impact, Sans', size: '36px' })
+      .textColor('#FFFFFF')
+      .text('Please turn your screen sideways.')
+      .css( 'padding', '10px' )
+      .css( 'text-align', 'center' )
+      .attr({ x: 0, y: SCREEN.center_in_y(SCREEN.HEIGHT / 2), z: Layer.LINKS,
+              w: SCREEN.WIDTH * 0.95, h: SCREEN.HEIGHT / 2 });
+  }
+
+  ,_update_reminder: function() {
+    SCREEN._reminder = SCREEN._reminder || SCREEN._create_reminder();
+
+    $(SCREEN._reminder._element)
+      .width(SCREEN.WIDTH * 0.95)
+      .height(SCREEN.HEIGHT / 2);
+  }
+
+  ,_destroy_reminder: function() {
+    if ( SCREEN._reminder ) {
+      SCREEN._reminder.destroy();
+      SCREEN._reminder = null;
+    }
   }
 
   // Based on http://buildnewgames.com/mobile-game-primer/
@@ -181,7 +210,7 @@ var SCREEN = {
   // Fade a black layer from startAlpha to endAlpha over duration millisecs
   ,_doFadeBlack: function( startAlpha, endAlpha, duration, callback ) {
     var frame_count = parseInt( ( duration / 1000 ) * Crafty.timer.getFPS() );
-    SCREEN._mask = SCREEN._mask || Crafty.e( '2D, DOM, Tween, Color, Persist' );
+    SCREEN._mask = SCREEN._mask || Crafty.e( '2D, DOM, Color, Persist' );
     SCREEN._mask.attr({
         x: 0,
         y: 0,
@@ -190,11 +219,13 @@ var SCREEN = {
         z: Layer.HUD_FX,
         alpha: startAlpha
       })
-      .color( 'black' )
-      .tween({ alpha: endAlpha }, frame_count );
+      .color( 'black' );
+
+    // Animate outside of Crafty because Crafty may be paused.
+    $(SCREEN._mask._element).animate({ opacity: endAlpha }, duration);
 
     if ( typeof callback == 'function' )
-      Crafty.e('Delay').delay( callback, duration );
+      _.delay( callback, duration );
   }
 
 };
