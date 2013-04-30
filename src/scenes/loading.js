@@ -11,17 +11,11 @@ Crafty.scene("loading", function() {
   // Monitor browser resize events, like mobile orientation changes.
   $(window).resize( _.debounce( SCREEN.resize_callback, 500 ) );
 
-  SCREEN.init();
-  Timer.init();
-
-  // clear scene and interface
-  sc = []; infc = [];
-
   var loadingText = Crafty.e("2D, DOM, Text")
       .attr({w: 500, h: 20, x: SCREEN.center_in_x(500), y: SCREEN.center_in_y(20), z: Layer.HUD_FG})
       .text('Loading...')
       .textColor('#000')
-      .textFont({ size: '24px', family: 'Gruppo, Arial', weight: 'bold'})
+      .textFont({ size: '24px', family: 'Russo One, Arial', weight: 'bold'})
       .textAlign('center');
 
   // load takes an array of assets and a callback when complete
