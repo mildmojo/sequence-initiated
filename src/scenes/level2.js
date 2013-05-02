@@ -32,7 +32,7 @@ function level2CreateUI() {
     .setup({ digits: 3, val: 0, fontSize: 36 });
 
   this.launch_button = Crafty.e( 'PushButton' )
-    .setup({ label: 'LAUNCH', fontSize: 24, sprite: 'large' })
+    .setup({ label: 'LAUNCH', fontSize: 24, sprite: 'large', latch: true })
     .bind( 'ButtonDown', function() { self._show_victory() } );
 
   function toggle_lamp(lamp) {
@@ -115,7 +115,7 @@ function level2ResizeUI() {
 }
 
 function level2ShowVictory() {
-  this.launch_button.setLock(true);
+  this.launch_button.freeze();
 
   this.status
     .write( 'Sequence Complete.' )

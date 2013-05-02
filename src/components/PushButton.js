@@ -2,14 +2,16 @@
 Crafty.c( 'PushButton', {
   init: function(){
     _(this).extend({
-      is_locked: true
-      ,_label_text: ''
-      ,_label_font: 'Black Ops One'
-      ,_label_font_size: 0
-      ,_label_fudge: { x: 5, y: 5 }
-      ,_label_offset: { x: -14, y: -8 }
-      ,_sprite_name: ''
-      ,_sprites: { main: null, label: null, lock: null }
+      is_locked:          true
+      ,is_frozen:         false
+      ,is_latch:          false
+      ,_label_text:       ''
+      ,_label_font:       'Black Ops One'
+      ,_label_font_size:  0
+      ,_label_fudge:      { x: 5, y: 5 }
+      ,_label_offset:     { x: -14, y: -8 }
+      ,_sprite_name:      ''
+      ,_sprites:          { main: null, label: null, lock: null }
     })
 
     this._sprites.main = Crafty.e( '2D, Canvas, Mouse, MouseHover' ).attr({ z: Layer.SPRITES });
@@ -25,12 +27,15 @@ Crafty.c( 'PushButton', {
       sprite.bind( 'MouseUp',   function(){ self.release() } );
       sprite.bind( 'MouseOut',  function(){ self.release() } );
     });
+
+    this.setLatch(false);
   }
 
   ,setup: function(attrs) {
     typeof attrs.label    !== 'undefined' && this.label( attrs.label );
     typeof attrs.sprite   !== 'undefined' && this.setSprite( attrs.sprite );
     typeof attrs.fontSize !== 'undefined' && this.fontSize( attrs.fontSize );
+    typeof attrs.latch    !== 'undefined' && this.setLatch( attrs.latch );
     return this;
   }
 
@@ -51,6 +56,11 @@ Crafty.c( 'PushButton', {
   ,fontSize: function(new_fontsize) {
     this._label_font_size = new_fontsize;
     this._sprites.label.textFont({ size: new_fontsize + 'px' });
+  }
+
+  ,setLatch: function(is_latch) {
+    var sprite = this._sprites.main;
+    this.is_latch = is_latch;
   }
 
   ,label: function(new_label) {
@@ -94,32 +104,38 @@ Crafty.c( 'PushButton', {
   }
 
   ,setLock: function(is_locked) {
-    if ( is_locked != this.is_locked ) {
+    if ( !this.is_frozen && is_locked != this.is_locked ) {
       this._sprites.lock.tween( { x: this._x + (is_locked ? 0 : this._w * 0.9) }, 15 )
     }
     this.is_locked = is_locked;
   }
 
   ,press: function() {
-    if ( !this.is_locked ) {
+    if ( !this.is_locked && !this.is_frozen ) {
       this.is_down = true;
       this._sprites.main.sprite(1, 0);
       this._redraw_label();
       this.trigger( 'ButtonDown' );
-      // this._sprites.label.attr({ x: SCREEN.center_in_x(this._sprites.label._w, this),
-      //            y: SCREEN.center_in_y(this._sprites.label._h, this) + this._label_fudge.y });
     }
   }
 
   ,release: function() {
-    if ( !this.is_locked ) {
+    if ( !this.is_locked && !this.is_frozen && !this.is_latch ) {
       this.is_down = false;
       this._sprites.main.sprite(0, 0);
       this._redraw_label();
       this.trigger( 'ButtonUp' );
-      // this._sprites.label.attr({ x: SCREEN.center_in_x(this._sprites.label._w, this) - this._label_fudge.x,
-      //            y: SCREEN.center_in_y(this._sprites.label._h, this) });
     }
+  }
+
+  ,freeze: function(){
+    this.is_frozen = true;
+    return this;
+  }
+
+  ,unfreeze: function() {
+    this.is_frozen = false;
+    return this;
   }
 
   ,_measure_text: function(text) {

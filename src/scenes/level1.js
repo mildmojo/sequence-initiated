@@ -40,7 +40,7 @@ function level1CreateUI() {
     });
 
   this.launch_button = Crafty.e( 'PushButton' )
-    .setup({ label: 'LAUNCH', fontSize: 24, sprite: 'large' })
+    .setup({ label: 'LAUNCH', fontSize: 24, sprite: 'large', latch: true })
     .bind( 'ButtonDown', function() { self._show_victory() } );
 }
 
@@ -80,7 +80,7 @@ function level1ResizeUI() {
 }
 
 function level1ShowVictory() {
-  this.launch_button.setLock(true);
+  this.launch_button.freeze();
 
   this.status
     .write( 'Sequence Complete.' )

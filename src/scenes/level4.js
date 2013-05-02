@@ -47,10 +47,11 @@ function level4CreateUI() {
   this.lamp = Crafty.e( '2D, Canvas, lamp_red' );
 
   this.launch_button = Crafty.e( 'PushButton' )
-    .setup({ label: 'LAUNCH', fontSize: 24, sprite: 'large' })
+    .setup({ label: 'LAUNCH', fontSize: 24, sprite: 'large', latch: true })
     .bind( 'ButtonDown', function() { self._show_victory() } );
 
   for ( var i = 0; i < this.toggle_count / 2; i++ ) {
+    // Base power
     this.left_toggles.push(
       Crafty.e( 'ToggleSwitch' )
         .switchType( 'small_toggle' )
@@ -62,30 +63,38 @@ function level4CreateUI() {
         })
     );
 
+    // Entropy
     this.right_toggles.push(
       Crafty.e( 'ToggleSwitch' )
         .switchType( 'small_toggle' )
         .bind( 'Toggle', function(is_on) {
-          self._system_entropy += is_on ? 5 : -5;
+          self._system_entropy += is_on ? 10 : -10;
         })
     );
   }
 
+  // Gauge jitter
   this.bind( 'EnterFrame', _.throttle(function() {
     var entropy = Crafty.math.randomInt(1, self._system_entropy);
     entropy = Crafty.math.randomInt(0, 1) == 0 ? -entropy : entropy;
     self._current_entropy = entropy;
-  }, 1000) );
+  }, 500) );
 
+  // Simulation and gauge animation loop
   this.bind( 'EnterFrame', function() {
     var energy = self._system_energy;
     var entropy = self._current_entropy;
     var ready_for_launch = energy + entropy > 85;
-    self.launch_button.setLock( !ready_for_launch );
-    self.lamp.sprite( ready_for_launch ? 1 : 0, 0 );
-    energy = Crafty.math.lerp( self.gauge.val(), energy + entropy, Timer.dt * self._gauge_factor )
-    self.gauge.val( energy );
-//console.log(energy);
+
+    // Update UI with system state
+    if ( !self.launch_button.is_frozen ) {
+      self.launch_button.setLock( !ready_for_launch );
+      self.lamp.sprite( ready_for_launch ? 1 : 0, 0 );
+
+      // Animate gauge
+      energy = Crafty.math.lerp( self.gauge.val(), energy + entropy, Timer.dt * self._gauge_factor )
+      self.gauge.val( energy );
+    }
   });
 }
 
@@ -140,7 +149,7 @@ function level4ResizeUI() {
 }
 
 function level4ShowVictory() {
-  this.launch_button.setLock(true);
+  this.launch_button.freeze();
 
   this.status
     .write( 'Sequence Complete.' )
