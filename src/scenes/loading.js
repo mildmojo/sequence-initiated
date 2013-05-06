@@ -12,7 +12,7 @@ Crafty.scene("loading", function() {
   $(window).resize( _.debounce( SCREEN.resize_callback, 500 ) );
 
   var loadingText = Crafty.e("2D, DOM, Text")
-      .attr({w: 500, h: 20, x: SCREEN.center_in_x(500), y: SCREEN.center_in_y(20), z: Layer.HUD_FG})
+      .attr({w: 500, h: 20, x: SCREEN.center_in_x(500), y: SCREEN.h_pct(0.25), z: Layer.HUD_FG})
       .text('Loading...')
       .textColor('#000')
       .textFont({ size: '24px', family: 'Russo One, Arial', weight: 'bold'})
@@ -23,10 +23,13 @@ Crafty.scene("loading", function() {
     function() {
       initSprites();
       //when everything is loaded, run the main scene
-      loadingText.destroy();
-      if (gameContainer.sceneName != undefined) {
-        Crafty.scene(gameContainer.sceneName);
-      }
+      loadingText.text('Would you like to play a game?')
+        .addComponent( 'Mouse, MouseHover' )
+        .bind( 'MouseDown', function(){
+          if (gameContainer.sceneName != undefined) {
+            Crafty.scene(gameContainer.sceneName);
+          }
+        });
     },
     function(e) {
       loadingText.text('Loading ('+(e.percent.toFixed(0))+'%)');
