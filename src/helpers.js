@@ -185,6 +185,12 @@ var SCREEN = {
     return $(elem._element).height();
   }
 
+  ,measure_text: function(text, font, size) {
+    var ctx = Crafty.canvas.context;
+    ctx.font = size+'px ' + font;
+    return ctx.measureText(text).width;
+  }
+
   ,origin: function() {
     return { x: SCREEN.WIDTH / 2, y: SCREEN.HEIGHT / 2 };
   }
