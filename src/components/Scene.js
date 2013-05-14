@@ -20,7 +20,7 @@ Crafty.c( 'Scene', {
     Crafty.bind( 'WindowResize', resizer );
     this.bind( 'Remove', function(){
       Crafty.unbind( 'WindowResize', resizer );
-      this.kill();
+      self.kill();
     });
 
     return this;
