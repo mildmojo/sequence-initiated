@@ -12,24 +12,33 @@
   <title>Sequence Initiated</title>
   <meta name="description" content="Configure the system for launch!">
 
-  <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0" />
-
   <script src="src/libs/modernizr-2.5.3.min.js"></script>
-  <script src="src/libs/viewporter.js"></script>
-
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
   <link href='http://fonts.googleapis.com/css?family=Black+Ops+One|Russo+One' rel='stylesheet' type='text/css'>
   <link href='web/fonts/bpdots/stylesheet.css' rel='stylesheet' type='text/css'>
   <link href='web/fonts/digital_dream/stylesheet.css' rel='stylesheet' type='text/css'>
-  <style type="text/css">body {-webkit-tap-highlight-color: rgba(0,0,0,0);  margin: 0;}</style>
+  <style type="text/css">
+    body {
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      margin: 0;
+    }
+    #cr-stage {
+      margin: 0 auto;
+      line-height: 1em;
+    }
+    canvas {
+        image-rendering: optimizeSpeed;
+        image-rendering:-o-crisp-edges;
+        image-rendering:-webkit-optimize-contrast;
+        -ms-interpolation-mode: nearest-neighbor;
+    }
+  </style>
 </head>
 <body style="background: black">
   <!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
-  <div id="viewporter">
-    <div id="cr-stage"></div>
-  </div>
+  <div id="cr-stage"></div>
 
   <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script> -->
   <!-- <script>window.jQuery || document.write('<script src="src/libs/jquery-2.0.0.min.js"><\/script>')</script> -->
@@ -37,8 +46,13 @@
   <script>window.Crafty || document.write('<script src="src/libs/crafty-0.5.3.js"><\/script>')</script>
 
   <!-- scripts concatenated and minified via build script -->
+  <script src="src/crafty_hacks.js"></script>
   <script src="src/libs/underscore-1.3.4.min.js"></script>
   <script src="src/libs/require-jquery.js"></script>
+  <!-- required for crafty-debug: <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
+  <script src="src/libs/isMobile.min.js"></script>
+  <script src="src/libs/address-bar-util.js"></script>
+  <script src="src/libs/bigscreen.min.js"></script>
   <script src="src/game.js"></script>
 
 
