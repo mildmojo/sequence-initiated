@@ -34,21 +34,30 @@ function clampVal( val, min, max ) {
 }
 
 var SCREEN = {
-  WIDTH:      0
-  ,HEIGHT:    0
-  ,mouseDown: false
-  ,_mask:     null
-  ,_reminder: null
+  WIDTH:        533
+  ,HEIGHT:      320
+  ,scale:       1
+  ,realOffsetX: 0
+  ,realOffsetY: 0
+  ,mouseDown:   false
+  ,_origin_obj: null
+  ,_mask:       null
+  ,_reminder:   null
 
   ,init: function() {
-    $(window).on( 'resize',    _.debounce( SCREEN.resize_callback, 250 ) );
+    // Map window resize events to Crafty WindowResize triggers
+    Crafty.addEvent( Crafty, window, 'resize', _.throttle( SCREEN.resize_callback, 500 ) );
+    Crafty.bind( 'SceneChange', SCREEN.resize_callback );
+
     $(window).on( 'mousedown', function(){ SCREEN.mouseDown = true } );
     $(window).on( 'mouseup',   function(){ SCREEN.mouseDown = false } );
     SCREEN.resize_callback();
   }
 
+  // On window resize, reset the viewport scale
   ,resize_callback: function(){
-    SCREEN._setupProportionalCanvas();
+    SCREEN._set_scale();
+
     if ( SCREEN.is_portrait() ) {
       SCREEN._update_reminder();
       SCREEN.fadeToBlack(500, function() {
@@ -56,10 +65,38 @@ var SCREEN = {
       });
     } else if ( Crafty.isPaused() ) {
       Crafty.pause(false);
+
       SCREEN._destroy_reminder();
       SCREEN.fadeFromBlack(250);
     }
+
+    // Adjust canvas to new window size and scale contents if necessary
+    Crafty.viewport.reload();
+    Crafty.viewport.absoluteScale( SCREEN.scale );
+
     Crafty.trigger( 'WindowResize' );
+  }
+
+  ,_set_scale: function() {
+    switch (true) {
+      case SCREEN.realHeight > SCREEN.HEIGHT:
+        // Recalculate scale & offset, keep virtual window centered horizontally
+        SCREEN.scale = SCREEN.realHeight / SCREEN.HEIGHT;
+        SCREEN.realOffsetX = ( SCREEN.realWidth - SCREEN.scaleWidth ) / 2;
+        SCREEN.realOffsetY = 0;
+        break;
+      case SCREEN.realWidth > SCREEN.WIDTH:
+        // Recalculate scale & offset, keep virtual window centered vertically
+        SCREEN.scale = SCREEN.realWidth / SCREEN.WIDTH;
+        SCREEN.realOffsetX = 0;
+        SCREEN.realOffsetY = ( SCREEN.realHeight - SCREEN.scaleHeight ) / 2;
+        break;
+      default:
+        SCREEN.scale = 1
+        SCREEN.realOffsetX = ( SCREEN.realWidth - SCREEN.scaleWidth ) / 2;
+        SCREEN.realOffsetY = ( SCREEN.realHeight - SCREEN.scaleHeight ) / 2;
+        break;
+    }
   }
 
   ,_create_reminder: function() {
@@ -69,16 +106,16 @@ var SCREEN = {
       .text('Please turn your screen sideways.')
       .css( 'padding', '10px' )
       .css( 'text-align', 'center' )
-      .attr({ x: 0, y: SCREEN.center_in_y(SCREEN.HEIGHT / 2), z: Layer.LINKS,
-              w: SCREEN.WIDTH * 0.95, h: SCREEN.HEIGHT / 2 });
+      .attr({ x: 0, y: SCREEN.realHeight * 0.25, z: Layer.LINKS,
+              w: SCREEN.realWidth * 0.95, h: SCREEN.realHeight / 2 });
   }
 
   ,_update_reminder: function() {
     SCREEN._reminder = SCREEN._reminder || SCREEN._create_reminder();
 
     $(SCREEN._reminder._element)
-      .width(SCREEN.WIDTH * 0.95)
-      .height(SCREEN.HEIGHT / 2);
+      .width(SCREEN.realWidth * 0.95)
+      .height(SCREEN.realHeight / 2);
   }
 
   ,_destroy_reminder: function() {
@@ -86,37 +123,6 @@ var SCREEN = {
       SCREEN._reminder.destroy();
       SCREEN._reminder = null;
     }
-  }
-
-  // Based on http://buildnewgames.com/mobile-game-primer/
-  ,_setupProportionalCanvas: function() {
-    var $container = $("#cr-stage");
-    var $canvas    = $(Crafty.stage.elem);
-    SCREEN.HEIGHT  = window.innerHeight;
-    SCREEN.WIDTH   = window.innerWidth;
-
-    $container.css('height',SCREEN.HEIGHT*2);
-    window.scrollTo(0,1);
-
-    $canvas.attr({width: SCREEN.WIDTH, height: SCREEN.HEIGHT});
-    SCREEN.HEIGHT = window.innerHeight + 2
-    $container.css({ height: SCREEN.HEIGHT, width: SCREEN.WIDTH, padding: 0, margin: 0});
-
-    var canvasH = $canvas.attr('height'),
-        canvasW = $canvas.attr('width'),
-        maxHeightMult = SCREEN.HEIGHT / canvasH,
-        maxWidthMult = SCREEN.WIDTH / canvasW,
-        multiplier = Math.min(maxHeightMult, maxWidthMult),
-        destH = canvasH * multiplier,
-        destW = canvasW * multiplier;
-
-    $canvas.css({
-      position: 'absolute',
-      height: destH,
-      width: destW,
-      left: SCREEN.WIDTH / 2 - destW / 2,
-      top: 0
-    });
   }
 
   // Expects a screen height percentage as a decimal. Returns percent of screen height.
@@ -130,7 +136,7 @@ var SCREEN = {
   }
 
   ,center_in_x: function(val, relative_to_obj) {
-    var x = SCREEN.origin().x;
+    var x = SCREEN.realWidth / 2 / SCREEN.scale;
     var w = 0;
 
     if ( typeof relative_to_obj !== 'undefined' ) {
@@ -149,11 +155,11 @@ var SCREEN = {
       }
     }
 
-    return ( x + w / 2 ) - val / 2;
+    return (( x + w / 2 ) - val / 2);
   }
 
   ,center_in_y: function(val, relative_to_obj) {
-    var y = SCREEN.origin().y;
+    var y = SCREEN.realHeight / 2 / SCREEN.scale;
     var h = 0;
 
     if ( typeof relative_to_obj !== 'undefined' ) {
@@ -175,14 +181,12 @@ var SCREEN = {
     return ( y + h / 2 ) - val / 2;
   }
 
-  ,css_width: function(elem) {
-    // console.log($(elem._element).css('width'));
-    return $(elem._element).width();
+  ,css_width: function(entity) {
+    return $(entity._element).width();
   }
 
-  ,css_height: function(elem) {
-    // console.log($(elem._element).css('height'));
-    return $(elem._element).height();
+  ,css_height: function(entity) {
+    return $(entity._element).height();
   }
 
   ,measure_text: function(text, font, size) {
@@ -196,11 +200,11 @@ var SCREEN = {
   }
 
   ,is_portrait: function() {
-    return SCREEN.WIDTH < SCREEN.HEIGHT;
+    return SCREEN.realWidth < SCREEN.realHeight;
   }
 
   ,is_landscape: function(){
-    return SCREEN.WIDTH > SCREEN.HEIGHT;
+    return SCREEN.realWidth >= SCREEN.realHeight;
   }
 
   // Fade to black over duration millisecs
@@ -215,13 +219,13 @@ var SCREEN = {
 
   // Fade a black layer from startAlpha to endAlpha over duration millisecs
   ,_doFadeBlack: function( startAlpha, endAlpha, duration, callback ) {
-    var frame_count = parseInt( ( duration / 1000 ) * Crafty.timer.getFPS() );
+    var frame_count = Math.floor( ( duration / 1000 ) * Crafty.timer.getFPS() );
     SCREEN._mask = SCREEN._mask || Crafty.e( '2D, DOM, Color, Persist' );
     SCREEN._mask.attr({
         x: 0,
         y: 0,
-        w: SCREEN.WIDTH*2,
-        h: SCREEN.HEIGHT*2,
+        w: SCREEN.realWidth*2,
+        h: SCREEN.realHeight*2,
         z: Layer.HUD_FX,
         alpha: startAlpha
       })
@@ -258,3 +262,7 @@ var Timer = {
 
   ,realNow: function() { return new Date(); }
 };
+SCREEN.__defineGetter__( 'scaleWidth',  function(){ return SCREEN.WIDTH * SCREEN.scale } );
+SCREEN.__defineGetter__( 'scaleHeight', function(){ return SCREEN.HEIGHT * SCREEN.scale } );
+SCREEN.__defineGetter__( 'realWidth',   function(){ return window.innerWidth } );
+SCREEN.__defineGetter__( 'realHeight',  function(){ return window.innerHeight } );

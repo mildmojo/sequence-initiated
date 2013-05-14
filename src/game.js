@@ -57,6 +57,16 @@ window.onload = function() {
   // This refuses to work.
   //Crafty.viewport.scale(2.0);
 
+  // Crafty hooks the resize event and calls Crafty.viewport.reload(), which
+  //   redraws all entities. We're hooking resize and calling
+  //   Crafty.viewport.scale() which redraws everything *again*. The first draw
+  //   is wrong because the scale hasn't been set yet, so we get a flash of
+  //   entities in the wrong places. Solution: move Crafty.viewport.reload() to
+  //   our own code, unhook it from the resize event, and call it *after*
+  //   Crafty.viewport.scale().
+  Crafty.removeEvent( Crafty, window, "resize", Crafty.viewport.reload );
+
+  // We really don't need to soak up all key events.
   Crafty.removeEvent( this, "keydown", Crafty.keyboardDispatch );
   Crafty.removeEvent( this, "keyup", Crafty.keyboardDispatch );
 
