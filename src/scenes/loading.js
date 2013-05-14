@@ -8,28 +8,37 @@ Crafty.scene("loading", function() {
     ,'web/images/pushbutton_large.png?v='+version+''
     ,'web/images/dial_medium.png?v='+version+''
   ];
-  // Monitor browser resize events, like mobile orientation changes.
-  $(window).resize( _.debounce( SCREEN.resize_callback, 500 ) );
+
+  // Touch events are not allowed to trigger the fullscreen API in Firefox Mobile.
+  Crafty.touch.disable();
 
   var loadingText = Crafty.e("2D, DOM, Text")
-      .attr({w: 500, h: 20, x: SCREEN.center_in_x(500), y: SCREEN.h_pct(0.25), z: Layer.HUD_FG})
+      .attr({w: 500, h: 36, x: SCREEN.center_in_x(500), y: SCREEN.h_pct(0.25), z: Layer.HUD_FG})
       .text('Loading...')
       .textColor('#000')
-      .textFont({ size: '24px', family: 'Russo One, Arial', weight: 'bold'})
-      .textAlign('center');
+      .textFont({ size: '36px', family: 'Russo One, Arial', weight: 'bold'})
+      .textAlign('center')
+      .bind('Click', function(){
+        if ( BigScreen.enabled && isMobile.any ) {
+          BigScreen.request( Crafty.stage.elem );
+        }
+        // Done with fullscreen API, reenable touch events.
+        Crafty.touch.enable();
+        SCREEN.fadeToBlack( 500, function(){
+          _.delay( function(){ Crafty.scene( gameContainer.sceneName ) }, 500 );
+        });
+      });
 
   // load takes an array of assets and a callback when complete
   Crafty.load(assets,
     function() {
       initSprites();
-      //when everything is loaded, run the main scene
-      loadingText.text('Would you like to play a game?')
-        .addComponent( 'Mouse, MouseHover' )
-        .bind( 'MouseDown', function(){
-          if (gameContainer.sceneName != undefined) {
-            Crafty.scene(gameContainer.sceneName);
-          }
-        });
+      if ( BigScreen.enabled && isMobile.any ) {
+        loadingText.text('Click!')
+          .addComponent( 'Mouse, MouseHover' );
+      } else {
+        loadingText.trigger('Click');
+      }
     },
     function(e) {
       loadingText.text('Loading ('+(e.percent.toFixed(0))+'%)');
