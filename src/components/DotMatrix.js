@@ -25,7 +25,7 @@ Crafty.c( 'DotMatrix', {
     // this.css( 'color', '#EEB955' );
     //this.css( 'background', '#FFF' );
     this.css( 'color', '#000' );
-    this.css( 'border', '1px solid black' );
+    this.css( 'border', '3px solid black' );
 
     this.bind( 'EnterFrame', function(f){ self._animate(f) } );
 
@@ -40,9 +40,11 @@ Crafty.c( 'DotMatrix', {
 
   ,width: function(new_width) {
     if ( typeof new_width !== 'undefined' ) {
-      this.css( 'width', new_width+'px' );
+      // this.css( 'width', new_width+'px' );
+      this._w = new_width + new_width % this._measure_text(' ');
     }
-    return SCREEN.css_width(this);
+    // return SCREEN.css_width(this);
+    return this._w;
   }
 
   ,fontSize: function(size) {
@@ -53,13 +55,13 @@ Crafty.c( 'DotMatrix', {
   ,write: function(new_text) {
     var self = this;
     var space_width = this._measure_text(' ');
-    var space_count = Math.ceil( SCREEN.css_width(this) / space_width );
+    var space_count = Math.ceil( this._w / space_width );
     var text = '';
 
     this._text_body = new_text;
 
     // Add enough leading space to push the message out of the frame.
-    while ( this._measure_text(text) < SCREEN.css_width(this) ) {
+    while ( this._measure_text(text) < this._w ) {
       text += ' ';
     }
     text += new_text;
@@ -68,7 +70,7 @@ Crafty.c( 'DotMatrix', {
     // Box width minus message width divided by two spaces (one on each side)
     // gives leading space count when message is centered.
     this._centered_space_count =
-      Math.floor( (SCREEN.css_width(this) - this._measure_text(this._text_body)) / this._measure_text('  ') );
+      Math.floor( (this._w - this._measure_text(this._text_body)) / this._measure_text('  ') );
 
     // Start subtracting characters from the front of the string.
     this._start_animating();
