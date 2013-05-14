@@ -8,8 +8,8 @@ Crafty.c( 'PushButton', {
       ,_label_text:       ''
       ,_label_font:       'Black Ops One'
       ,_label_font_size:  0
-      ,_label_fudge:      { x: 5, y: 5 }
-      ,_label_offset:     { x: -14, y: -8 }
+      ,_label_fudge:      { x: 4, y: 4 }
+      ,_label_offset:     { x: -8, y: -8 }
       ,_sprite_name:      ''
       ,_sprites:          { main: null, label: null, lock: null }
     })
@@ -105,7 +105,7 @@ Crafty.c( 'PushButton', {
 
   ,setLock: function(is_locked) {
     if ( !this.is_frozen && is_locked != this.is_locked ) {
-      this._sprites.lock.tween( { x: this._x + (is_locked ? 0 : this._w * 0.9) }, 15 )
+      this._sprites.lock.tween( { x: this._x + (is_locked ? 0 : this._w ) }, 15 );
     }
     this.is_locked = is_locked;
   }
