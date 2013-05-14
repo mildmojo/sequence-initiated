@@ -217,6 +217,10 @@ var SCREEN = {
     SCREEN._doFadeBlack( 1.0, 0.0, duration, callback );
   }
 
+  // Cut immediately to black
+  ,cutToBlack: function() {
+    SCREEN._doFadeBlack( 1, 1, 0 );
+  }
   // Fade a black layer from startAlpha to endAlpha over duration millisecs
   ,_doFadeBlack: function( startAlpha, endAlpha, duration, callback ) {
     var frame_count = Math.floor( ( duration / 1000 ) * Crafty.timer.getFPS() );
@@ -230,6 +234,9 @@ var SCREEN = {
         alpha: startAlpha
       })
       .color( 'black' );
+
+    // TODO: Something in Crafty 2D or DOM is resetting alpha; track down what sets it to 1.0
+    $(SCREEN._mask._element).css('opacity', startAlpha);
 
     // Animate outside of Crafty because Crafty may be paused.
     $(SCREEN._mask._element).animate({ opacity: endAlpha }, duration);
