@@ -15,10 +15,10 @@ function level1CreateUI() {
     ,lamp:          null
     ,launch_button: null
     ,readout:       null
-    ,toggle_width:  100
-    ,lamp_width:   30
-    ,button_width:  150
-    ,readout_width: 54
+    ,toggle_width:  75
+    ,lamp_width:    20
+    ,button_width:  100
+    ,readout_width: 46
   });
 
   // Create UI elements
@@ -26,7 +26,7 @@ function level1CreateUI() {
     .setup({ fontSize: 20 });
 
   this.readout = Crafty.e( 'SevenSegment, Offscreen' )
-    .setup({ digits: 2, val: '--', fontSize: 36 });
+    .setup({ digits: 2, val: '--', fontSize: 30 });
 
   this.lamp = Crafty.e( '2D, Canvas, lamp_red' );
 
@@ -40,7 +40,7 @@ function level1CreateUI() {
     });
 
   this.launch_button = Crafty.e( 'PushButton' )
-    .setup({ label: 'LAUNCH', fontSize: 24, sprite: 'large', latch: true })
+    .setup({ label: 'LAUNCH', fontSize: 16, sprite: 'large', latch: true })
     .bind( 'ButtonDown', function() { self._show_victory() } );
 }
 
@@ -52,16 +52,16 @@ function level1ResizeUI() {
   var button_width  = this.button_width;
   var status_height = this.status._h * 3;
 
-  var width   = Math.round( toggle_width * 3 + button_width );
-  var height  = status_height + Math.round( toggle_width * 1.25 ) + lamp_width * 2 + readout_width;
+  var width   = Math.round( toggle_width * 4 + button_width );
+  var height  = status_height * 1.25 + Math.round( toggle_width * 1 ) + lamp_width * 2 + readout_width;
   var left    = SCREEN.center_in_x(width);
   var top     = SCREEN.center_in_y(height);
 
   // Arrange UI elements
-  this.status.attr({ x: left, y: top });
-  this.status.width(width);
-  top += status_height;
-  height -= status_height;
+  this.status.width(SCREEN.w_pct(0.88));
+  this.status.attr({ x: SCREEN.center_in_x(this.status.w), y: top });
+  top += status_height * 1.1;
+  height -= status_height * 1.1;
 
   this.toggle.attr({ x: SCREEN.center_in_x(toggle_width, left + toggle_width * 1.5),
                      y: top + lamp_width * 2, w: toggle_width, h: toggle_width });
@@ -73,7 +73,7 @@ function level1ResizeUI() {
                       y: top + lamp_width * 2 + toggle_width * 1.25})
 
   this.launch_button
-    .attr({ x: left + width - button_width, y: SCREEN.center_in_y(button_width, top + height / 2),
+    .attr({ x: left + width - button_width * 1.5, y: this.toggle.y - 12,
             w: button_width, h: button_width });
 
   this.status.write('SEQUENCE INITIATED');

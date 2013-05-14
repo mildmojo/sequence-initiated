@@ -11,35 +11,37 @@ Crafty.scene("level4", function() {
 function level4CreateUI() {
   var self = this;
   _(this).extend({
-    left_label: null
-    ,right_label: null
-    ,left_toggles: []
-    ,right_toggles: []
-    ,lamp: null
-    ,toggle_count: 4
-    ,toggle_width: 100
-    ,lamp_width: 30
-    ,button_width: 150
-    ,readout_width: 60
-    ,gauge_width: 105
-    ,label_height: 20
-    ,_system_energy: 0
-    ,_system_entropy: 0
-    ,_current_entropy: 0
-    ,_gauge_factor: 3
+    left_label:         null
+    ,right_label:       null
+    ,left_toggles:      []
+    ,right_toggles:     []
+    ,lamp:              null
+    ,toggle_count:      4
+    ,toggle_width:      75
+    ,lamp_width:        20
+    ,button_width:      100
+    ,readout_width:     60
+    ,gauge_width:       75
+    ,label_height:      20
+    ,_system_energy:    0
+    ,_system_entropy:   0
+    ,_current_entropy:  0
+    ,_gauge_factor:     3
   });
 
   // Create UI elements
   this.status = Crafty.e( 'DotMatrix' )
     .setup({ fontSize: 20 });
 
-  this.left_label = Crafty.e( '2D, DOM, Text' )
+  this.left_label = Crafty.e( '2D, DOM, Text, Offscreen' )
     .textFont({ family: 'Russo One', size: this.label_height+'px' })
     .text('BASE');
+  this.left_label.draw();
 
-  this.right_label = Crafty.e( '2D, DOM, Text' )
+  this.right_label = Crafty.e( '2D, DOM, Text, Offscreen' )
     .textFont({ family: 'Russo One', size: this.label_height+'px' })
     .text('ENTROPY');
+  this.right_label.draw();
 
   this.gauge = Crafty.e( 'RoundGauge' )
     .setup({ vals: { min: 0, max: 100 }, angles: { min: 0, max: -180 } });
@@ -47,7 +49,7 @@ function level4CreateUI() {
   this.lamp = Crafty.e( '2D, Canvas, lamp_red' );
 
   this.launch_button = Crafty.e( 'PushButton' )
-    .setup({ label: 'LAUNCH', fontSize: 24, sprite: 'large', latch: true })
+    .setup({ label: 'LAUNCH', fontSize: 16, sprite: 'large', latch: true })
     .bind( 'ButtonDown', function() { self._show_victory() } );
 
   for ( var i = 0; i < this.toggle_count / 2; i++ ) {
@@ -58,7 +60,7 @@ function level4CreateUI() {
         .bind( 'Toggle', function(is_on) {
           self._system_energy += is_on ? 40 : -40;
           if ( self._system_energy > 40 ) {
-            self.status.write('Insufficient power. Increase entropy.');
+            self.status.write('INSUFFICIENT POWER. INCREASE ENTROPY.');
           }
         })
     );
@@ -78,7 +80,7 @@ function level4CreateUI() {
     var entropy = Crafty.math.randomInt(1, self._system_entropy);
     entropy = Crafty.math.randomInt(0, 1) == 0 ? -entropy : entropy;
     self._current_entropy = entropy;
-  }, 500) );
+  }, 800) );
 
   // Simulation and gauge animation loop
   this.bind( 'EnterFrame', function() {
@@ -108,40 +110,40 @@ function level4ResizeUI() {
   var gauge_width   = this.gauge_width;
   var label_height  = this.label_height;
 
-  var width   = Math.round( toggle_width * (toggle_count / 2) + button_width + gauge_width * 1.5 );
-  var height  = status_height + label_height + Math.round( toggle_width * 2.25 );
+  var width   = Math.round( toggle_width * 1.5 * (toggle_count / 2) + button_width + gauge_width * 1.5 );
+  var height  = status_height * 1.5 + label_height + Math.round( toggle_width * 2.25 );
   var left    = SCREEN.center_in_x(width);
   var top     = SCREEN.center_in_y(height);
 
   // Arrange UI elements
-  this.status.attr({ x: left, y: top });
-  this.status.width(width);
-  top += status_height;
-  height -= status_height;
-
-  // TODO FIXME HACKS bad number here, make it calculated
-  this.left_label.attr({ x: left + 22,
-                         y: top, z: Layer.HUD_FG });
-  this.right_label.attr({ x: left + toggle_width, y: top, z: Layer.HUD_FG });
-
-  top += label_height * 1.5;
+  this.status.width(SCREEN.w_pct(0.88));
+  this.status.attr({ x: SCREEN.center_in_x(this.status.w), y: top });
+  top += status_height * 1.5;
+  height -= status_height * 1.5;
 
   for ( var i = 0; i < toggle_count / 2; i++ ) {
-    var toggle_y = top + i * toggle_width * 1.1;
+    var toggle_y = top + label_height * 1.5 + i * toggle_width * 1.1;
 
     this.left_toggles[i].attr({ x: left, y: toggle_y,
                       w: toggle_width, h: toggle_width });
-    this.right_toggles[i].attr({ x: left + toggle_width, y: toggle_y,
+    this.right_toggles[i].attr({ x: left + toggle_width * 1.5, y: toggle_y,
                       w: toggle_width, h: toggle_width });
   }
+
+  this.left_label.attr({ x: SCREEN.center_in_x(SCREEN.css_width(this.left_label), this.left_toggles[0].x + this.left_toggles[0].w / 2),
+                         y: top, z: Layer.HUD_FG });
+  this.right_label.attr({ x: SCREEN.center_in_x(SCREEN.css_width(this.right_label), this.right_toggles[0].x + this.right_toggles[0].w / 2),
+                          y: top, z: Layer.HUD_FG });
+
+  top += label_height * 1.5;
 
   this.launch_button
     .attr({ x: left + width - button_width, y: SCREEN.center_in_y(button_width, top + height / 2), z: Layer.SPRITES,
             w: button_width, h: button_width });
 
-  this.gauge.attr({ x: left + toggle_width * 2.25, y: top + height / 2 - gauge_width * 0.8, w: gauge_width, h: gauge_width });
+  this.gauge.attr({ x: left + toggle_width * 2.8, y: top + height / 2 - gauge_width * 0.8, w: gauge_width, h: gauge_width });
 
-  this.lamp.attr({ x: SCREEN.center_in_x(lamp_width, left + toggle_width * 2.25 + gauge_width / 2),
+  this.lamp.attr({ x: SCREEN.center_in_x(lamp_width, left + toggle_width * 2.8 + gauge_width / 2),
                    y: top + height - gauge_width * 0.8,
                    w: lamp_width, h: lamp_width });
 

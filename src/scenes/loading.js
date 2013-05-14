@@ -39,17 +39,17 @@ Crafty.scene("loading", function() {
 
 function initSprites() {
   var version = gameContainer.version();
-  Crafty.sprite(100, 'web/images/switches.png?v='+version+'', {
+  Crafty.sprite(75, 'web/images/switches.png?v='+version+'', {
     switch_small_toggle: [0, 0]
   });
-  Crafty.sprite(30, 'web/images/lights.png?v='+version+'', {
+  Crafty.sprite(20, 'web/images/lights.png?v='+version+'', {
     lamp_red: [0, 0]
     ,lamp_green: [1, 0]
   });
-  Crafty.sprite(150, 'web/images/pushbutton_large.png?v='+version+'', {
+  Crafty.sprite(100, 'web/images/pushbutton_large.png?v='+version+'', {
     pushbutton_large: [0, 0]
   });
-  Crafty.sprite(105, 'web/images/dial_medium.png?v='+version+'', {
+  Crafty.sprite(75, 'web/images/dial_medium.png?v='+version+'', {
     dial_medium: [0, 0]
   });
 }

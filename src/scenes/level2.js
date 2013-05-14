@@ -11,17 +11,17 @@ Crafty.scene("level2", function() {
 function level2CreateUI() {
   var self = this;
   _(this).extend({
-    upper_toggles: []
-    ,lower_toggles: []
-    ,upper_lights: []
-    ,lower_lights: []
-    ,readout: null
-    ,toggle_count: 6
-    ,toggle_width: 100
-    ,light_width: 30
-    ,button_width: 150
-    ,readout_width: 60
-    ,_system_energy: 0
+    upper_toggles:    []
+    ,lower_toggles:   []
+    ,upper_lights:    []
+    ,lower_lights:    []
+    ,readout:         null
+    ,toggle_count:    6
+    ,toggle_width:    75
+    ,light_width:     20
+    ,button_width:    100
+    ,readout_width:   60
+    ,_system_energy:  0
   });
 
   // Create UI elements
@@ -29,10 +29,10 @@ function level2CreateUI() {
     .setup({ fontSize: 20 });
 
   this.readout = Crafty.e( 'SevenSegment, Offscreen' )
-    .setup({ digits: 3, val: 0, fontSize: 36 });
+    .setup({ digits: 3, val: 0, fontSize: 30 });
 
   this.launch_button = Crafty.e( 'PushButton' )
-    .setup({ label: 'LAUNCH', fontSize: 24, sprite: 'large', latch: true })
+    .setup({ label: 'LAUNCH', fontSize: 16, sprite: 'large', latch: true })
     .bind( 'ButtonDown', function() { self._show_victory() } );
 
   function toggle_lamp(lamp) {
@@ -80,16 +80,16 @@ function level2ResizeUI() {
   var status_height = this.status._h * 3;
 
   var width   = Math.round( (toggle_width + light_width / 2) * (toggle_count / 2)  + button_width );
-  var height  = Math.round( toggle_width * 2.25 ) + status_height;
+  var height  = status_height * 1.25 + Math.round( toggle_width * 2.25 );
   var left    = SCREEN.center_in_x(width);
   var top     = SCREEN.center_in_y(height);
 
   // Arrange UI elements
   // this.status.attr({x: 20, y: 0});
-  this.status.attr({ x: left, y: top });
-  this.status.width(width);
-  top += status_height;
-  height -= status_height;
+  this.status.width(SCREEN.w_pct(0.88));
+  this.status.attr({ x: SCREEN.center_in_x(this.status.w), y: top });
+  top += status_height * 1.1;
+  height -= status_height * 1.1;
 
   for ( var i = 0; i < toggle_count / 2; i++ ) {
     var light_x = left + i * (toggle_width + light_width * 0.2);
@@ -108,7 +108,7 @@ function level2ResizeUI() {
   this.readout.attr({ x: left + width - button_width, y: top });
 
   this.launch_button
-    .attr({ x: left + width - button_width, y: top + height - button_width * 0.88, z: Layer.SPRITES,
+    .attr({ x: left + width - button_width, y: top + height - button_width * 0.96, z: Layer.SPRITES,
             w: button_width, h: button_width });
 
   this.status.write('SEQUENCE INITIATED');
