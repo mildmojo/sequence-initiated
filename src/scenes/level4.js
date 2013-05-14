@@ -1,10 +1,9 @@
 Crafty.scene("level4", function() {
   Crafty.background('#CCC');
 
-  SCREEN.fadeFromBlack(500, function() {
-    var scene = Crafty.e( 'Scene' ).callbacks( level4CreateUI, level4ResizeUI );
-    scene._show_victory = level4ShowVictory;
-  })
+  SCREEN.cutToBlack();
+  var scene = Crafty.e( 'Scene' ).callbacks( level4CreateUI, level4ResizeUI );
+  scene._show_victory = level4ShowVictory;
 });
 
 // Create UI elements, add behaviors
@@ -130,6 +129,7 @@ function level4ResizeUI() {
                       w: toggle_width, h: toggle_width });
   }
 
+  // TODO FIXME HACKS bad number here, make it calculated
   this.left_label.attr({ x: SCREEN.center_in_x(SCREEN.css_width(this.left_label), this.left_toggles[0].x + this.left_toggles[0].w / 2),
                          y: top, z: Layer.HUD_FG });
   this.right_label.attr({ x: SCREEN.center_in_x(SCREEN.css_width(this.right_label), this.right_toggles[0].x + this.right_toggles[0].w / 2),
@@ -147,6 +147,7 @@ function level4ResizeUI() {
                    y: top + height - gauge_width * 0.8,
                    w: lamp_width, h: lamp_width });
 
+  SCREEN.fadeFromBlack(500);
   this.status.write('SEQUENCE INITIATED');
 }
 
@@ -156,6 +157,8 @@ function level4ShowVictory() {
   this.status
     .write( 'Sequence Complete.' )
     .bind( 'MidFinish', function(){
-      SCREEN.fadeToBlack(1000, function() { Crafty.scene( 'level1' ) });
+      SCREEN.fadeToBlack(1000, function() {
+        _.delay( function() { Crafty.scene( 'level7' ) }, 500);
+      });
     });
 }

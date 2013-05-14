@@ -1,10 +1,9 @@
 Crafty.scene("level2", function() {
   Crafty.background('#CCC');
 
-  SCREEN.fadeFromBlack(500, function() {
-    var scene = Crafty.e( 'Scene' ).callbacks( level2CreateUI, level2ResizeUI );
-    scene._show_victory = level2ShowVictory;
-  })
+  SCREEN.cutToBlack();
+  var scene = Crafty.e( 'Scene' ).callbacks( level2CreateUI, level2ResizeUI );
+  scene._show_victory = level2ShowVictory;
 });
 
 // Create UI elements, add behaviors
@@ -111,6 +110,7 @@ function level2ResizeUI() {
     .attr({ x: left + width - button_width, y: top + height - button_width * 0.96, z: Layer.SPRITES,
             w: button_width, h: button_width });
 
+  SCREEN.fadeFromBlack(500);
   this.status.write('SEQUENCE INITIATED');
 }
 
@@ -120,6 +120,8 @@ function level2ShowVictory() {
   this.status
     .write( 'Sequence Complete.' )
     .bind( 'MidFinish', function(){
-      SCREEN.fadeToBlack(1000, function() { Crafty.scene( 'level4' ) });
+      SCREEN.fadeToBlack(1000, function() {
+        _.delay( function() { Crafty.scene( 'level4' ) }, 500);
+      });
     });
 }
