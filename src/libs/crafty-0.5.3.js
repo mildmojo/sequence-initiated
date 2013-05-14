@@ -4927,7 +4927,7 @@ Crafty.extend({
             return function (amt) {
                 var bounds = this.bounds || Crafty.map.boundaries(),
                     final_zoom = amt ? this._zoom * amt : 1,
-					czoom = final_zoom / this._zoom;
+                    czoom = final_zoom / this._zoom;
 
                 this._zoom = final_zoom;
                 act.width = bounds.max.x - bounds.min.x;
@@ -4944,8 +4944,8 @@ Crafty.extend({
                     Crafty.canvas.context.scale(czoom, czoom);
                     Crafty.DrawManager.drawAll();
                 }
-                //Crafty.viewport.width = new_s.width;
-                //Crafty.viewport.height = new_s.height;
+                Crafty.viewport.width = new_s.width;
+                Crafty.viewport.height = new_s.height;
             }
         })(),
         /**@
