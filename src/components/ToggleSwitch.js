@@ -54,13 +54,13 @@ Crafty.c( 'ToggleSwitch', {
     // console.log( SCREEN.mouseDown );
     if ( SCREEN.mouseDown ) {
       e.preventDefault();
-      var nextY = e.clientY;
-      var lastY = this._last_drag ? this._last_drag.clientY : nextY;
+      var nextY = e.realY;
+      var lastY = this._last_drag ? this._last_drag.realY : nextY;
       var midpoint = this._origin.y + this.y;
       this._total_drag += nextY - lastY;
 
       // console.log(this._total_drag);
-      // console.log([e.clientY, midpoint])
+      // console.log([e.realY, midpoint])
       // console.log(e.buttons);
 
       // Last drag was above the middle
