@@ -58,6 +58,9 @@ function initSprites() {
   Crafty.sprite(100, 'web/images/pushbutton_large.png?v='+version+'', {
     pushbutton_large: [0, 0]
   });
+  Crafty.sprite(100, 'web/images/pushbutton_medium_wide.png?v='+version+'', {
+    pushbutton_medium_wide: [0, 0]
+  });
   Crafty.sprite(75, 'web/images/dial_medium.png?v='+version+'', {
     dial_medium: [0, 0]
   });

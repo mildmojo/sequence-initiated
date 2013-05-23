@@ -167,9 +167,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.64"
-     inkscape:cx="541.60336"
-     inkscape:cy="450.69308"
+     inkscape:zoom="0.90509668"
+     inkscape:cx="585.46111"
+     inkscape:cy="424.10351"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -550,7 +550,7 @@
          y="200.19847">Font: Black Ops One</tspan></text>
     <g
        id="g3870"
-       transform="matrix(0.99663995,0,0,0.99663995,-109.77478,7.8587819)"
+       transform="matrix(0.99663995,0,0,0.99663995,-608.21228,-595.26622)"
        inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/rotary_large.png"
        inkscape:export-xdpi="41.919998"
        inkscape:export-ydpi="41.919998">
@@ -575,7 +575,7 @@
     </g>
     <g
        id="g3898"
-       transform="translate(76,-8)"
+       transform="translate(-80.25,-576.75)"
        inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/dial_medium.png"
        inkscape:export-xdpi="41.919998"
        inkscape:export-ydpi="41.919998">
@@ -584,7 +584,7 @@
          id="g3887">
         <path
            transform="matrix(0,-1,1,0,120.56752,1305.671)"
-           d="m 688.33905,713.6994 c 0,60.06515 -48.69242,108.75757 -108.75757,108.75757 -60.06514,0 -108.75757,-48.69242 -108.75757,-108.75757 0,-60.06514 48.69243,-108.75757 108.75757,-108.75757 60.06515,0 108.75757,48.69243 108.75757,108.75757 z"
+           d="m 688.33905,713.6994 a 108.75757,108.75757 0 1 1 -217.51514,0 108.75757,108.75757 0 1 1 217.51514,0 z"
            sodipodi:ry="108.75757"
            sodipodi:rx="108.75757"
            sodipodi:cy="713.6994"
@@ -600,7 +600,7 @@
            sodipodi:cy="713.6994"
            sodipodi:rx="104.89057"
            sodipodi:ry="104.89057"
-           d="m 670.41938,661.25411 c 18.7369,32.45326 18.7369,72.43732 0,104.89058 l -90.8379,-52.44529 z"
+           d="m 670.41938,661.25411 a 104.89057,104.89057 0 0 1 0,104.89058 l -90.8379,-52.44529 z"
            transform="matrix(0,-1,1,0,120.56752,1305.671)"
            sodipodi:start="5.7595865"
            sodipodi:end="6.8067841" />
@@ -624,7 +624,7 @@
            sodipodi:cy="713.6994"
            sodipodi:rx="108.75757"
            sodipodi:ry="108.75757"
-           d="m 673.7683,768.07819 c -30.03257,52.01794 -96.54766,69.8406 -148.5656,39.80803 -52.01795,-30.03257 -69.84061,-96.54766 -39.80803,-148.5656 30.03257,-52.01795 96.54765,-69.84061 148.5656,-39.80803 16.53323,9.54546 30.26256,23.27479 39.80803,39.80802 l -94.18682,54.37879 z"
+           d="m 673.7683,768.07819 a 108.75757,108.75757 0 1 1 0,-108.75758 l -94.18682,54.37879 z"
            transform="matrix(0,-1,1,0,-6.7842818,1306.3765)"
            sodipodi:start="0.52359878"
            sodipodi:end="5.7595865" />
@@ -660,6 +660,84 @@
          id="path3934"
          d="m 39.900753,726.93073 c 0.743946,2.21332 1.459498,4.43497 2.146834,6.66434 0.03535,0.1161 -0.133861,0.27042 -0.38023,0.34612 L 3.5645579,745.65015 c -0.246441,0.0755 -0.4691296,0.0571 -0.499681,-0.042 -0.5859976,-1.90116 -1.1961226,-3.79535 -1.8301965,-5.68205 -0.032947,-0.098 0.1369821,-0.24349 0.3812036,-0.32578 L 39.389926,726.8714 c 0.244238,-0.0823 0.472068,-0.056 0.510844,0.0593 z m -97.436774,310.41137 c -1.879795,1.3921 -3.77599,2.7595 -5.688089,4.1021 -0.09939,0.07 -0.298696,-0.043 -0.446574,-0.255 l -22.86763,-32.6415 c -0.14788,-0.211 -0.198569,-0.4288 -0.113699,-0.4883 1.629543,-1.1439 3.245084,-2.3088 4.846165,-3.4944 0.08319,-0.062 0.273969,0.055 0.427473,0.2621 l 23.741854,32.0106 c 0.153504,0.2069 0.19849,0.432 0.100589,0.5044 z m -325.167429,3.2348 c -1.89837,-1.3489 -3.77975,-2.7215 -5.64371,-4.1177 -0.0969,-0.073 -0.0506,-0.2973 0.10409,-0.5035 l 23.91767,-31.888 c 0.15463,-0.2063 0.34565,-0.3223 0.42854,-0.2602 1.59077,1.1915 3.19642,2.3629 4.81658,3.5139 0.0842,0.06 0.0322,0.2773 -0.11688,0.4875 l -23.05876,32.5151 c -0.1491,0.2102 -0.34862,0.3232 -0.4475,0.253 z m -103.6474,-308.38685 c 0.6984,-2.22152 1.42477,-4.43427 2.17898,-6.63774 0.0391,-0.11453 0.26721,-0.13958 0.511,-0.0559 l 37.70343,12.93839 c 0.24378,0.0837 0.41301,0.22965 0.37949,0.32762 -0.64363,1.8804 -1.26355,3.76878 -1.85964,5.66465 -0.031,0.0986 -0.25393,0.11602 -0.49984,0.0389 l -38.03502,-11.92799 c -0.24593,-0.0771 -0.41478,-0.2322 -0.3784,-0.34794 z M -225.23407,538.3772 c 2.33915,-0.0259 4.68011,-0.0222 7.02239,0.0111 0.12176,0.002 0.21678,0.21068 0.21284,0.46834 l -0.60937,39.84986 c -0.004,0.25766 -0.0905,0.46383 -0.1944,0.46233 -1.99373,-0.0286 -3.98697,-0.0318 -5.97919,-0.01 -0.10356,0.002 -0.18963,-0.20529 -0.19269,-0.46297 l -0.47387,-39.8513 c -0.003,-0.25766 0.0924,-0.46629 0.2142,-0.46764 z"
          style="fill:none;stroke:#000000;stroke-width:7.886271;stroke-miterlimit:4;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3167"
+       inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_medium_wide.png"
+       inkscape:export-xdpi="41.919998"
+       inkscape:export-ydpi="41.919998">
+      <g
+         transform="translate(1.5625,309.375)"
+         id="g3077"
+         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+         inkscape:export-xdpi="41.919998"
+         inkscape:export-ydpi="41.919998">
+        <rect
+           y="264.86404"
+           x="277.14261"
+           height="322.02701"
+           width="322.02701"
+           id="rect3079"
+           style="fill:none;stroke:none" />
+        <g
+           transform="matrix(0.89441942,0,0,0.8941554,29.260874,22.019118)"
+           id="g3081">
+          <path
+             style="fill:#a50000;fill-opacity:1;stroke:none"
+             d="m 288.32328,316.3332 285.21758,0 0,155.40839 -285.21758,0 z"
+             id="path3083"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccc" />
+          <path
+             style="fill:#650000;fill-opacity:1;stroke:none"
+             d="m 288.32304,471.58184 285.17268,0 25.25382,25.71428 -285.17268,0 z"
+             id="path3085"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccc" />
+          <path
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             id="path3087"
+             d="m 599.16938,342.42933 -0.37881,155.02928 -25.33547,-25.72415 0,-155.40809 z"
+             style="fill:#4d0000;fill-opacity:1;stroke:none" />
+        </g>
+      </g>
+      <g
+         transform="translate(1.5625,309.375)"
+         id="g3089"
+         inkscape:export-filename="/home/shrapnel/code/sequence-initiated/web/images/pushbutton_large.png"
+         inkscape:export-xdpi="41.919998"
+         inkscape:export-ydpi="41.919998">
+        <rect
+           style="fill:none;stroke:none"
+           id="rect3091"
+           width="322.02701"
+           height="322.02701"
+           x="599.16962"
+           y="264.86404" />
+        <g
+           id="g3093"
+           transform="matrix(0.89441942,0,0,0.8941554,362.22855,32.935289)">
+          <path
+             style="fill:#a50000;fill-opacity:1;stroke:none"
+             d="m 288.32273,316.44486 285.21758,0 0,155.40839 -285.21758,0 z"
+             id="path3095"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccc" />
+          <path
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             id="path3097"
+             d="m 288.32304,471.58184 285.17268,0 13.14997,13.55643 -285.17268,0 z"
+             style="fill:#650000;fill-opacity:1;stroke:none" />
+          <path
+             style="fill:#4d0000;fill-opacity:1;stroke:none"
+             d="m 586.93725,330.22097 -0.37881,155.02928 -13.10334,-13.5158 0,-155.40809 z"
+             id="path3099"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccc" />
+        </g>
+      </g>
     </g>
   </g>
 </svg>
